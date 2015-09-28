@@ -12,6 +12,6 @@ def login(request):
 def logup(request):
     return render_to_response('logup.html')
 
-@login_required(login_url='/login')
+@login_required
 def home(request):
     return render_to_response('home.html')
