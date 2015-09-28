@@ -18,16 +18,17 @@
     <body>
 
         <div class="row z-depth-5" id=logup>
-            <form class="col s12">
+            <form class="col s12" method="POST">{% csrf_token %}
                 <div class="row ">
                     <div class="input-field col s10">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">Name</label>
+                        {{user.username}}
+                        <input id="username" name="username" type="text" class="validate">
+                        <label for="username">Username</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s10">
-                        <input id="password" type="password" class="validate">
+                        <input id="password" name="password" type="password" class="validate">
                         <label for="password">Password</label>
                     </div>
                 </div><br>
