@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load staticfiles %}
 
 <html lang="en">
     <head>
@@ -6,59 +6,66 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
         <title>#GrapeMix</title>
 
-        <!-- CSS  -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <script src="js/jquery-2.1.4.js"></script>
-        <script src="js/materialize.js"></script>
-        <script src="js/init.js"></script>
-        <link rel="icon" type="image/png" href="img/favicons.png"/>
+        <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script src="{% static 'js/materialize.js' %}"></script>
+        <script src="{% static 'js/init.js' %}"></script>
+        <link rel="icon" type="image/png" href="{% static 'img/favicons.png' %}"/>
 
     </head>
 
     <body>
 
-        <div class="row z-depth-5" id=logup>
+
+        <div class="row z-depth-5" id=login>
             <form class="col s12">
-                <div class="row ">
+                <div class="row">
                     <div class="input-field col s10">
                         <input id="first_name" type="text" class="validate">
-                        <label for="first_name">Nombre</label>
+                        <label for="first_name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s10">
                         <input id="password" type="password" class="validate">
-                        <label for="password">Contraseña</label>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
                     </div>
                 </div><br>
+
                 <div>
-                    <a href="login.html" class="grey-text waves-effect waves-orange btn-flat">Registrate</a>
-                    <a href="inicio.html" class="white-text waves-effect orange waves btn">Inicia Sesion</a>
+                    <a href="{% url 'GMP:login' %}" class="grey-text waves-effect waves-orange btn-flat">Log In</a>
+                    <a class="white-text waves-effect orange waves btn">Log Up</a>
                 </div>
 
             </form>
         </div>
 
-
-
-
-
-
         <div class="slider fullscreen">
             <ul class="slides">
                 <li>
-                    <img src="img/index.jpeg">
+                    <img src="{% static 'img/index.jpg' %}">
                 </li>
                 <li>
-                    <img src="img/index2.jpg">
+                    <img src="{% static 'img/index2.jpg' %}">
                 </li>
                 <li>
-                    <img src="img/index3.jpg">
+                    <img src="{% static 'img/index3.jpg' %}">
                 </li>
                 <li>
-                    <img src="img/index4.jpg">
+                    <img src="{% static 'img/index4.jpg' %}">
                 </li>
             </ul>
         </div>
