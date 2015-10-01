@@ -40,6 +40,14 @@ INSTALLED_APPS = (
     'GMP',
 )
 
+<<<<<<< HEAD
+=======
+from django.core.urlresolvers import reverse_lazy
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGOUT_URL = reverse_lazy('logout')
+
+>>>>>>> GrapeMix/master
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
