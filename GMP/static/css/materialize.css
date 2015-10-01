@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-/*!Rodri
-=======
->>>>>>> GrapeMix/master
 /*!
  * Materialize v0.97.0 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
@@ -1562,11 +1558,7 @@
   color: #bdbdbd !important; }
 
 .grey {
-<<<<<<< HEAD
-  background-color: #616161 !important; }
-=======
   background-color: #9e9e9e !important; }
->>>>>>> GrapeMix/master
 
 .grey-text {
   color: #9e9e9e !important; }
@@ -2100,11 +2092,7 @@ img.responsive-img, video.responsive-video {
 .parallax-container {
   position: relative;
   overflow: hidden;
-<<<<<<< HEAD
-  height: 610px; }
-=======
   height: 603px; }
->>>>>>> GrapeMix/master
 
 .parallax {
   position: absolute;
@@ -5111,11 +5099,7 @@ span.badge {
     .row .col.s12 {
      width: 100%;
      margin-left: 0;
-<<<<<<< HEAD
-     padding-left: none;}
-=======
      padding-left: 35px;}
->>>>>>> GrapeMix/master
     .row .col.offset-s1 {
       margin-left: 8.33333%; }
     .row .col.offset-s2 {
@@ -5145,13 +5129,8 @@ span.badge {
         width: 8.33333%;
         margin-left: 0; }
       .row .col.m2 {
-<<<<<<< HEAD
-        width: 18.9%;
-        margin-left: 12px;
-=======
         width: 16.66667%;
         margin-left: 0; }
->>>>>>> GrapeMix/master
       .row .col.m3 {
         width: 25%;
         margin-left: 0; }
@@ -5709,16 +5688,10 @@ small {
 .tabs {
   position: relative;
   height: 48px;
-<<<<<<< HEAD
-  background-color: #616161;
-  margin: 0 auto;
-  width: 100%; }
-=======
   background-color: black;
   margin: 0 auto;
   width: 100%;
   white-space: nowrap; }
->>>>>>> GrapeMix/master
   .tabs .tab {
     display: block;
     float: left;
@@ -5819,11 +5792,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-<<<<<<< HEAD
-  background-color: #0D46CF;
-=======
   background-color: #26a69a;
->>>>>>> GrapeMix/master
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: .2s ease-out;
@@ -5861,13 +5830,7 @@ small {
     border-radius: 0; }
   .btn-floating.btn-large {
     width: 55.5px;
-<<<<<<< HEAD
-    height: 55.5px;
-    margin-left: 615px;
-    margin-top: 180px;}
-=======
     height: 55.5px; }
->>>>>>> GrapeMix/master
     .btn-floating.btn-large i {
       line-height: 55.5px; }
 
@@ -6117,20 +6080,12 @@ a.waves-effect .waves-ripple {
   border-top: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
-<<<<<<< HEAD
-  width: 1100px;
-=======
->>>>>>> GrapeMix/master
   margin: 0.5rem 0 1rem 0; }
 
 .collapsible-header {
   display: block;
   cursor: pointer;
   height: 3rem;
-<<<<<<< HEAD
-  width: 1100px;
-=======
->>>>>>> GrapeMix/master
   line-height: 3rem;
   padding: 0 1rem;
   background-color: #fff;
