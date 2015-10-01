@@ -35,15 +35,24 @@
             <div id=circle>
                 <img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle z-depth-5">
             </div>
-            <div id=btn>
-                <a class="waves-effect waves-teal btn-flat">Noticias</a>
-                <a class="waves-effect waves-teal btn-flat">Radio</a>
-                <a class="waves-effect waves-teal btn-flat">Canciones</a>
-            </div>
             <div class="parallax"><img src="{% static 'img/index.jpg' %}"></div>
+            <h5 class="header center teal-text text-lighten-2">Rodrigo Ibarra</h5>
+            <p align="center" class="teal-text">Cordoba, Argentina</p>
+            <center><a href="https://www.facebook.com" class="waves-effect waves-light btn-large">Facebook</a></center>
+            <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey">+</a>
         </div>
 
-        <h2>NOTICIAS</h2>
+        <!-- MENU -->
 
+        <div id=noticias class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a href="active" class="white-text active">Noticias</a></li>
+                    <li class="tab col s3"><a href="#test3" class="white-text">Radio</a></li>
+                    <li class="tab col s3"><a href="#test4" class="white-text">Canciones</a></li>
+                </ul>
+
+            </div>
+        </div>
     </body>
 </html>
