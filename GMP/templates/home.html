@@ -31,6 +31,8 @@
 			</div>
 		</nav>
 
+
+
 		<div id="index-banner" class="parallax-container">
 			<div id=circle>
 				<img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle z-depth-5">
@@ -224,4 +226,13 @@
 		</footer>
 
 	</body>
+
+    <script>
+
+            {% for message in messages %}
+                Materialize.toast('{{ message }}', 4000);
+            {% endfor %}
+
+
+    </script>
 </html>

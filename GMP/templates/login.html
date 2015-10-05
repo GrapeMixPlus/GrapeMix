@@ -18,7 +18,7 @@
     <body>
 
         <div class="row z-depth-5" id=logup>
-            <form class="col s12" method="POST" action="{% url 'GMP:home' %}">{% csrf_token %}
+            <form class="col s12" method="POST" action="{% url 'GMP:login' %}">{% csrf_token %}
                 <div class="row ">
                     <div class="input-field col s10">
                         <input id="username" name="username" type="text" class="validate">
@@ -33,7 +33,7 @@
                 </div><br> {{ user.username }}
                 <div>
                     <a href="{% url 'GMP:logup' %}" class="grey-text waves-effect waves-orange btn-flat">Log Up</a>
-                    <button type="submit" class="white-text waves-effect orange waves btn">Log In</button>
+                    <button type="submit" name="logIn" class="white-text waves-effect orange waves btn">Log In</button>
                 </div>
 
             </form>
