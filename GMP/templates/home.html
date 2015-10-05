@@ -1,160 +1,162 @@
 {% load staticfiles %}
 
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-		<title>#GrapeMix</title>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <title>#GrapeMix</title>
 
-		<link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-		<link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-		<script src="{% static 'js/jquery-2.1.4.js' %}"></script>
-		<script src="{% static 'js/materialize.js' %}"></script>
-		<script src="{% static 'js/init.js' %}"></script>
-		<link rel="icon" type="image/png" href="{% static 'img/favicons.png' %}"/>
+        <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script src="{% static 'js/materialize.js' %}"></script>
+        <script src="{% static 'js/init.js' %}"></script>
+        <link rel="icon" type="image/png" href="{% static 'img/favicons.png' %}"/>
 
-	</head>
-	<body>
+    </head>
+    <body>
 
-		<ul id="dropdown1" class="dropdown-content">
-			<li><a class="white-text" href="#!">Help</a></li>
-			<li class="divider"></li>
-			<li><a class="white-text" href="#!">Log Out</a></li>
-		</ul>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a class="white-text" href="#!">Help</a></li>
+            <li class="divider"></li>
+            <li><a class="white-text" href="{% url 'GMP:logout' %}">Log Out</a></li>
+        </ul>
 
-		<nav class="color" role="navigation">
-			<div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3">
-				<ul class="right hide-on-med-and-down">
-					<li><img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle responsive-img"></li>
-					<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Rodrigo Ibarra<i class="material-icons right"></i></a></li>
-				</ul>
-			</div>
-		</nav>
+        <nav class="color" role="navigation">
+            <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3">
+                <ul class="right hide-on-med-and-down">
+                    <li><img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle responsive-img"></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Rodrigo Ibarra<i class="material-icons right"></i></a></li>
+                </ul>
+            </div>
+        </nav>
 
 
 
-		<div id="index-banner" class="parallax-container">
-			<div id=circle>
-				<img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle z-depth-5">
-			</div>
-			<div class="parallax"><img src="{% static 'img/index.jpg' %}"></div>
-			<h5 class="header center teal-text text-lighten-2">Rodrigo Ibarra</h5>
-			<p align="center" class="teal-text">Cordoba, Argentina</p>
-			<center><a href="https://www.facebook.com" class="waves-effect waves-light btn-large">Facebook</a></center>
-			<a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey">+</a>
-		</div>
+        <div id="index-banner" class="parallax-container">
+            <div id=circle>
+                <img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle z-depth-5">
+            </div>
+            <div class="parallax"><img src="{% static 'img/index.jpg' %}"></div>
+            <h5 class="header center teal-text text-lighten-2">Rodrigo Ibarra</h5>
+            <p align="center" class="teal-text">Cordoba, Argentina</p>
+            <center><a href="https://www.facebook.com" class="waves-effect waves-light btn-large">Facebook</a></center>
+            <div id=floating>
+                <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey">+</a>
+            </div>
+        </div>
 
-		<!-- MENU -->
+        <!-- MENU -->
 
-		<div id=noticias class="row">
-			<div class="col s12">
-				<ul class="tabs">
-					<li class="tab col s3"><a href="active" class="white-text active">Noticias</a></li>
-					<li class="tab col s3"><a href="#test3" class="white-text">Radio</a></li>
-					<li class="tab col s3"><a href="#test4" class="white-text">Canciones</a></li>
-				</ul>
-				<div class="row">
-					<div class="col s3 m2" >
-						<div class="card" >
-							<div class="card-image" >
-								<img src="{% static 'img/tarjet.jpg' %}" >
-								<span class="card-title">Card Title</span>
-							</div>
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small bits of information.
-									I am convenient because I require little markup to use effectively.</p>
-							</div>
-							<div class="card-action">
-								<a href="#">This is a link</a>
-							</div>
-						</div>
-					</div>
-					<div class="col s3 m2">
-						<div class="card">
-							<div class="card-image">
-								<img src="{% static 'img/tarjet.jpg' %}">
-								<span class="card-title">Card Title</span>
-							</div>
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small bits of information.
-									I am convenient because I require little markup to use effectively.</p>
-							</div>
-							<div class="card-action">
-								<a href="#">This is a link</a>
-							</div>
-						</div>
-					</div>
-					<div class="col s3 m2">
-						<div class="card">
-							<div class="card-image">
-								<img src="{% static 'img/tarjet.jpg' %}">
-								<span class="card-title">Card Title</span>
-							</div>
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small bits of information.
-									I am convenient because I require little markup to use effectively.</p>
-							</div>
-							<div class="card-action">
-								<a href="#">This is a link</a>
-							</div>
-						</div>
-					</div>
-					<div class="col s3 m2">
-						<div class="card">
-							<div class="card-image">
-								<img src="{% static 'img/tarjet.jpg' %}">
-								<span class="card-title">Card Title</span>
-							</div>
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small bits of information.
-									I am convenient because I require little markup to use effectively.</p>
-							</div>
-							<div class="card-action">
-								<a href="#">This is a link</a>
-							</div>
-						</div>
-					</div>
-					<div class="col s3 m2">
-						<div class="card">
-							<div class="card-image">
-								<img src="{% static 'img/tarjet.jpg' %}">
-								<span class="card-title">Card Title</span>
-							</div>
-							<div class="card-content">
-								<p>I am a very simple card. I am good at containing small bits of information.
-									I am convenient because I require little markup to use effectively.</p>
-							</div>
-							<div class="card-action">
-								<a href="#">This is a link</a>
-							</div>
-						</div>
-					</div>
-				</div>
+        <div id=noticias class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a href="active" class="white-text active">Noticias</a></li>
+                    <li class="tab col s3"><a href="#test3" class="white-text">Radio</a></li>
+                    <li class="tab col s3"><a href="#test4" class="white-text">Canciones</a></li>
+                </ul>
+                <div class="row">
+                    <div class="col s3 m2" >
+                        <div class="card" >
+                            <div class="card-image" >
+                                <img src="{% static 'img/tarjet.jpg' %}" >
+                                <span class="card-title">Card Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s3 m2">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{% static 'img/tarjet.jpg' %}">
+                                <span class="card-title">Card Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s3 m2">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{% static 'img/tarjet.jpg' %}">
+                                <span class="card-title">Card Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s3 m2">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{% static 'img/tarjet.jpg' %}">
+                                <span class="card-title">Card Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s3 m2">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{% static 'img/tarjet.jpg' %}">
+                                <span class="card-title">Card Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                    I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-				<div align=center>
-					<ul class="collapsible" data-collapsible="expandable">
-						<li>
-							<div class="collapsible-header"><i class="material-icons">location</i>Aca van noticias relacionadas al mundo de la musica</div>
-							<div class="collapsible-body"><p></p></div>
-						</li>
-						<li>
-							<div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
-							<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-						</li>
-						<li>
-							<div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
-							<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-						</li>
-						<li>
-							<div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
-							<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-						</li>
-						<li>
-							<div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
-							<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			</body>
-		</html>
+                <div align=center>
+                    <ul class="collapsible" data-collapsible="expandable">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">location</i>Aca van noticias relacionadas al mundo de la musica</div>
+                            <div class="collapsible-body"><p></p></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
+                            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
+                            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
+                            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
+                            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </body>
+        </html>
