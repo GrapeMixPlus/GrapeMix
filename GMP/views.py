@@ -1,22 +1,34 @@
 from django.shortcuts import render_to_response, render, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, logout, authenticate
-from GMP.forms import MyUserCreationForm
 from django.template import RequestContext
+from django.core.urlresolvers import reverse
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
+from GMP.models import UserProfile
+from GMP.forms import MyUserCreationForm
+from django.contrib import messages
+import logging
+logger = logging.getLogger('django')
+import os
 
 def inup(request):
     return render_to_response('grapemix.html')
 
-def login(request):
+def log_out(request):
+    logout(request)
+    context = RequestContext(request)
+    messages.add_message(request, messages.SUCCESS, 'Muchas gracias!')
+    return redirect('/')
+
+def log_in(request):
     context = RequestContext(request)
 
-    createUserForm = MyUserCreationForm()
+    #createUserForm = MyUserCreationForm()
     args = {}
-    args['createUserForm'] = createUserForm
+    #args['createUserForm'] = createUserForm
 
     if request.method == 'POST':
+
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
@@ -26,7 +38,7 @@ def login(request):
                 return redirect('/home')
             else:
                 messages.add_message(request, messages.ERROR,
-                                     'Invalid User')
+                                     'El usuario no esta activo')
                 return render_to_response('login.html', args, context)
         else:
             messages.add_message(request, messages.ERROR,
