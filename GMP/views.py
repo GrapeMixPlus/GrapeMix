@@ -48,7 +48,7 @@ def log_in(request):
         return render_to_response('login.html',args, context)
 
 def logup(request):
-     return render_to_response('logup.html')
+    return render_to_response('logup.html')
     context = RequestContext(request)
     createUserForm = MyUserCreationForm()
     args = {}

@@ -1,60 +1,44 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>#GrapeMix</title>
-
-        <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-        <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
-        <script src="{% static 'js/materialize.js' %}"></script>
-        <script src="{% static 'js/init.js' %}"></script>
-        <link rel="icon" type="image/png" href="{% static 'img/favicons.png' %}"/>
-
-    </head>
-
-    <body>
-
-        <div class="row z-depth-5" id=logup>
-            <form class="col s12" method="POST" action="{% url 'GMP:login' %}">{% csrf_token %}
-                <div class="row ">
-                    <div class="input-field col s10">
-                        <input id="username" name="username" type="text" class="validate">
-                        <label for="username">Username</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s10">
-                        <input id="password" name="password" type="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>
-                </div><br> {{ user.username }}
-                <div>
-                    <a href="{% url 'GMP:logup' %}" class="grey-text waves-effect waves-orange btn-flat">Log Up</a>
-                    <button type="submit" name="logIn" class="white-text waves-effect orange waves btn">Log In</button>
-                </div>
-
-            </form>
+{% block contenido %}
+<div class="row z-depth-5" id=logup>
+    <form class="col s12" method="POST" action="{% url 'GMP:login' %}">{% csrf_token %}
+        <div class="row ">
+            <div class="input-field col s10">
+                <input id="username" name="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s10">
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div><br>
+        <div>
+            <a href="{% url 'GMP:logup' %}" class="grey-text waves-effect waves-orange btn-flat">Log Up</a>
+            <button type="submit" name="logIn" class="white-text waves-effect orange waves btn">Log In</button>
         </div>
 
-        <div class="slider fullscreen">
-            <ul class="slides">
-                <li>
-                    <img src="{% static 'img/index.jpg' %}">
-                </li>
-                <li>
-                    <img src="{% static 'img/index2.jpg' %}">
-                </li>
-                <li>
-                    <img src="{% static 'img/index3.jpg' %}">
-                </li>
-                <li>
-                    <img src="{% static 'img/index4.jpg' %}">
-                </li>
-            </ul>
-        </div>
-    </body>
-</html>
+    </form>
+</div>
+
+<div class="slider fullscreen">
+    <ul class="slides">
+        <li>
+            <img src="{% static 'img/index.jpg' %}">
+        </li>
+        <li>
+            <img src="{% static 'img/index2.jpg' %}">
+        </li>
+        <li>
+            <img src="{% static 'img/index3.jpg' %}">
+        </li>
+        <li>
+            <img src="{% static 'img/index4.jpg' %}">
+        </li>
+    </ul>
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}
