@@ -5688,7 +5688,7 @@ small {
 .tabs {
   position: relative;
   height: 48px;
-  background-color: black;
+  background-color: #616161;
   margin: 0 auto;
   width: 100%;
   white-space: nowrap; }
@@ -5830,7 +5830,9 @@ small {
     border-radius: 0; }
   .btn-floating.btn-large {
     width: 55.5px;
-    height: 55.5px; }
+    height: 55.5px;
+		margin-left: 616px;
+		margin-top: 180px;}
     .btn-floating.btn-large i {
       line-height: 55.5px; }
 
