@@ -25,3 +25,5 @@ class MyUserCreationForm(UserCreationForm):
             if field.required:
                 field.widget.attrs['placeholder'] = 'Requerido'
                 field.label = '* ' + str(field.label)
+
+

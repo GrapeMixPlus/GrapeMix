@@ -19,8 +19,9 @@
 
 
         <div class="row z-depth-5" id=login>
-            <form class="col s12">
-                <div class="row">
+            <form id=formulario class="col s12" method="post" action="#">{% csrf_token %}
+                <div class="row">{{formulario}}</div>
+                <!--<div class="row">
                     <div class="input-field col s10">
                         <input id="first_name" type="text" class="validate">
                         <label for="first_name">Name</label>
@@ -44,11 +45,11 @@
                         <label for="email">Email</label>
                     </div>
                 </div><br>
-
+                -->
                 <div>
                     <a href="{% url 'GMP:login' %}" class="grey-text waves-effect waves-orange btn-flat">Log In</a>
-                    <a class="white-text waves-effect orange waves btn">Log Up</a>
-                </div>
+                    <input type="submit" class="white-text waves-effect orange waves btn" value="Register" />
+                </div
 
             </form>
         </div>
