@@ -49,6 +49,7 @@ def log_in(request):
         return render_to_response('login.html',args, context)
 
 def logup(request):
+<<<<<<< HEAD
     if request.method=='POST':
         formulario = UserCreationForm(request.POST)
         if formulario.is_valid:
@@ -57,6 +58,13 @@ def logup(request):
     else:
         formulario = UserCreationForm()
     return render_to_response('logup.html',{'formulario':formulario}, context_instance=RequestContext(request))
+=======
+    return render_to_response('logup.html')
+    context = RequestContext(request)
+    createUserForm = MyUserCreationForm()
+    args = {}
+    args['createUserForm'] = createUserForm
+>>>>>>> GrapeMix/master
 
 
     #return render_to_response('logup.html')
