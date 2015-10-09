@@ -2,7 +2,6 @@ from django.shortcuts import render_to_response, render, redirect
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from GMP.models import UserProfile
@@ -49,14 +48,23 @@ def log_in(request):
         return render_to_response('login.html',args, context)
 
 def logup(request):
-    if request.method=='POST':
-        formulario = UserCreationForm(request.POST)
-        if formulario.is_valid:
-            formulario.save()
-            return redirect(reverse('GMP:home'))
-    else:
-        formulario = UserCreationForm()
-    return render_to_response('logup.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    return render_to_response('logup.html')
+    context = RequestContext(request)
+    createUserForm = MyUserCreationForm()
+    args = {}
+    args['createUserForm'] = createUserForm
+
+    if request.method =='POST':
+        createUserForm = MyUserCreationForm(request.POST)
+        if createUserForm.is_valid():
+            userform = createUserForm.save()
+            userform.backend = 'django.contrib.auth.backends.ModelBackend'
+            login(request, userform)
+            return redirect('/')
+        else:
+            createUserForm = MyUserCreationForm()
+            args['createUserForm'] = createUserForm
+            return render_to_response('login.html', args, context)
 
 @login_required(login_url='/login')
 def home(request):
