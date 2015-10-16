@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block contenido %}
 
+
 <ul id="dropdown1" class="dropdown-content">
     <li><a class="white-text" href="#!">Help</a></li>
     <li class="divider"></li>
@@ -27,20 +28,18 @@
     <h5 class="header center teal-text text-lighten-2">Rodrigo Ibarra</h5>
     <p align="center" class="teal-text">Cordoba, Argentina</p>
     <center><a href="https://www.facebook.com" class="waves-effect waves-light btn-large">Facebook</a></center>
-    <div id=floating>
-        <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey">+</a>
-    </div>
+    <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey">+</a>
 </div>
 
-<!-- MENU -->
-
-<div id=noticias class="row">
+<div class="row">
     <div class="col s12">
         <ul class="tabs">
-            <li class="tab col s3"><a href="active" class="white-text active">Noticias</a></li>
-            <li class="tab col s3"><a href="#test3" class="white-text">Radio</a></li>
-            <li class="tab col s3"><a href="#test4" class="white-text">Canciones</a></li>
+            <li class="tab col s3"><a class="active" href="#test1">Noticias</a></li>
+            <li class="tab col s3"><a href="#test2">Radio</a></li>
+            <li class="tab col s3"><a href="#test3">Musica</a></li>
         </ul>
+    </div>
+    <div id="test1" class="col s12">
         <div class="row">
             <div class="col s3 m2" >
                 <div class="card" >
@@ -122,7 +121,7 @@
         <div align=center>
             <ul class="collapsible" data-collapsible="expandable">
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">location</i>Aca van noticias relacionadas al mundo de la musica</div>
+                    <div class="collapsible-header"><i class="material-icons">reorder</i>Aca van noticias relacionadas al mundo de la musica</div>
                     <div class="collapsible-body"><p></p></div>
                 </li>
                 <li>
@@ -144,6 +143,9 @@
             </ul>
         </div>
     </div>
-    {% endblock %}
-    {% block scripts %}
-    {% endblock %}
+    <div id="test2" class="col s12">Test 2</div>
+    <div id="test3" class="col s12">Test 3</div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}
