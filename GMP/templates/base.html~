@@ -1,38 +1,41 @@
 {% load staticfiles %}
+<!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
         <title>#GrapeMix</title>
 
-        
-        <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
-        <script src="{% static 'js/materialize.js' %}"></script>
+
+
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+
+        <script type="text/javascript" src="{% static 'jPlayer-master/dist/add-on/jplayer.playlist.min.js' %}"></script>
+
+        <link type="text/css" href="{% static 'jPlayer-master/dist/skin/blue.monday/css/jplayer.blue.monday.css' %}" rel="stylesheet" />
+
+        <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/font-awesome.min.css' %}" type="text/css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="{% static 'img/favicons.png' %}"/>
+        <script src="{% static 'js/jquery-2.1.4.js'%}"></script>
+        <script src="{% static 'js/materialize.js'%}"></script>
         <script src="{% static 'js/init.js'%}"></script>
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-	
-
-	<script type="text/javascript" src="{% static 'jPlayer-master/dist/add-on/jplayer.playlist.min.js' %}"></script>
-
-	<link type="text/css" href="{% static 'jPlayer-master/dist/skin/blue.monday/css/jplayer.blue.monday.css' %}" rel="stylesheet" />
-
-
-        <link rel="icon" type="image/png" href="{% static 'img/favicons.png' %}"/>
-	<link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link href="{% static 'css/font-awesome.min.css' %}" type="text/css" rel="stylesheet"/>
-
-
-
-        {% block css %}    
-        {% endblock %}
     </head>
-
-<!-- jQuery -->
-<script src="{% static 'js/jquery-2.1.4.js' %}"></script>
-</body>
+    <body>
 
 
-    {% block script %}
-    {% endblock %}
+        {% block contenido %}
+        {% endblock %}
+        <!-- jQuery -->
+
+    </body>
+
+    <script>
+        {% block script %}
+        {% endblock %}
+    </script>
+</html>
