@@ -5129,7 +5129,7 @@ span.badge {
         margin-left: 0; }
       .row .col.m2 {
         width: 18.9%;
-        margin-left: 6; }
+        margin-left: 11.5px; }
       .row .col.m3 {
         width: 25%;
         margin-left: 0; }
@@ -5829,7 +5829,9 @@ small {
     border-radius: 0; }
   .btn-floating.btn-large {
     width: 55.5px;
-    height: 55.5px; }
+    height: 55.5px;
+    margin-left: 615px;
+    margin-top: 180px;}
     .btn-floating.btn-large i {
       line-height: 55.5px; }
 
@@ -6079,7 +6081,9 @@ a.waves-effect .waves-ripple {
   border-top: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
-  margin: 0.5rem 0 1rem 0; }
+  margin: 0.5rem 0 1rem 0;
+  margin-left: 20px;
+  margin-right: 20px;}
 
 .collapsible-header {
   display: block;
