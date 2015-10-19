@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.forms.utils import ErrorList
 from django.contrib.auth.models import User
-from GMP.models import UserProfile
 import logging
 logger = logging.getLogger('django')
 
