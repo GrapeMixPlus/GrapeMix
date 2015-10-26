@@ -7,13 +7,14 @@
 
 
 <ul id="dropdown1" class="dropdown-content">
+
     <li><a class="white-text" href="#!">Help</a></li>
     <li class="divider"></li>
     <li><a class="white-text" href="{% url 'GMP:logout' %}">Log Out</a></li>
 </ul>
 
 <nav class="color" role="navigation">
-    <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3">
+    <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3" style="heigh:50px;">
         <ul class="right hide-on-med-and-down">
             <li><img src="{% get_media_prefix %}/{{user.profile.profile_photo}}" alt="" class="circle responsive-img"></li>
             <li><a class="dropdown-button" data-activates="dropdown1">{{ user }}<i class="material-icons right"></i></a></li>
@@ -30,10 +31,10 @@
     <h5 class="header center teal-text text-lighten-2">{{ user }}</h5>
     <p align="center" class="teal-text">Cordoba, Argentina</p>
     <center><a href="https://www.facebook.com" class="waves-effect waves-light btn-large">Facebook</a></center>
-    <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey">+</a>
+    <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey"><i class="fa fa-angle-double-down"></i></a>
 </div>
 
-<div class="row">
+<div class="row" id=noticias>
     <div class="col s12">
         <ul class="tabs">
             <li class="tab col s3"><a class="active" href="#test1">Noticias</a></li>
@@ -219,6 +220,32 @@
         <a class="waves-effect waves-light btn" id="agrega">agregar</a>
     </div>
 </div>
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Consultas</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Contactenos</h5>
+                <ul style="color:white;">
+                    <i class="fa fa-facebook  fa-4x"></i>
+                    <i class="fa fa-instagram fa-4x"></i>
+                    <i class="fa fa-twitter fa-4x"></i>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            #GrapeMix by Materialize
+            <a class="grey-text text-lighten-4 right" href="#!">Mensaje</a>
+        </div>
+    </div>
+</footer>
+
 {% endblock %}
 
 
@@ -358,3 +385,4 @@
 </script>
 
 {% endblock %}
+
