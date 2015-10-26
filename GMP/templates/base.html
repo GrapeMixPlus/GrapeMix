@@ -10,22 +10,21 @@
 
 
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
         <script type="text/javascript" src="{% static 'jPlayer-master/dist/jplayer/jquery.jplayer.min.js'%}"></script>
-        <script type="text/javascript" src="{% static 'jPlayer-master/dist/add-on/jplayer.playlist.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'jPlayer-master/lib/jquery.min.js' %}"></script>
-
-
-        <link type="text/css" href="{% static 'jPlayer-master/dist/skin/blue.monday/css/jplayer.blue.monday.css' %}" rel="stylesheet" />
-
-        <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{% static 'css/font-awesome.min.css' %}" type="text/css" rel="stylesheet"/>
-        <link rel="icon" type="image/png" href="{% static 'img/favicons.png' %}"/>
+        <script type="text/javascript" src="{% static 'jPlayer-master/dist/add-on/jplayer.playlist.min.js'%}"></script>
+        <script type="text/javascript" src="{% static 'jPlayer-master/lib/jquery.min.js'%}"></script>
         <script src="{% static 'js/jquery-2.1.4.js'%}"></script>
         <script src="{% static 'js/materialize.js'%}"></script>
         <script src="{% static 'js/init.js'%}"></script>
+
+        <link type="text/css" href="{% static 'jPlayer-master/dist/skin/blue.monday/css/jplayer.blue.monday.css'%}" rel="stylesheet" />
+
+        <link href="{% static 'css/materialize.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{% static 'css/font-awesome.min.css'%}" type="text/css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="{% static 'img/favicons.png'%}"/>
+
 
 
         {% block head %}
@@ -41,8 +40,8 @@
 
     </body>
 
-    <script>
+
         {% block script %}
         {% endblock %}
-    </script>
+
 </html>
