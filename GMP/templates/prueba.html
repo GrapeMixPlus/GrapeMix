@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+
+{% block head %}
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var myPlaylist = new jPlayerPlaylist({
+            jPlayer: "#jquery_jplayer_N",
+            cssSelectorAncestor: "#jp_container_N"
+        }, [
+            {
+                title:"Cro Magnon Man",
+                artist:"The Stark Palace",
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            }
+        ], {
+            playlistOptions: {
+                enableRemoveControls: true
+            },
+            swfPath: "../../dist/jplayer",
+            supplied: "webmv, ogv, m4v, oga, mp3",
+            useStateClassSkin: true,
+            autoBlur: false,
+            smoothPlayBar: true,
+            keyEnabled: true,
+            audioFullScreen: true
+        });
+
+
+
+        //add canciones a la playlist
+
+
+        $("#playlist-add-bubble").click(function() {
+            myPlaylist.add({
+                title:"Bubble",
+                artist:"Miaow",
+                free:true,
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        $("#playlist-add-hidden").click(function() {
+            myPlaylist.add({
+                title:"Hidden",
+                artist:"Miaow",
+                free: true,
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        $("#playlist-add-tempered-song").click(function() {
+            myPlaylist.add({
+                title:"Tempered Song",
+                artist:"Miaow",
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        $("#playlist-add-lentement").click(function() {
+            myPlaylist.add({
+                title:"Lentement",
+                artist:"Miaow",
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        // The Stark Palace tracks
+
+        $("#playlist-add-cro-magnon-man").click(function() {
+            myPlaylist.add({
+                title:"Cro Magnon Man",
+                artist:"The Stark Palace",
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            });
+        });
+
+        $("#playlist-add-your-face").click(function() {
+            myPlaylist.add({
+                title:"Your Face",
+                artist:"The Stark Palace",
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            });
+        });
+
+        $("#playlist-add-cyber-sonnet").click(function() {
+            myPlaylist.add({
+                title:"Cyber Sonnet",
+                artist:"The Stark Palace",
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            });
+        });
+
+
+
+
+        // agrega temas con el boton
+        $("#agrega").click(function() {
+            console.log("tu vieja")
+            myPlaylist.add({
+                title:$("#title").val(),
+                artist:$("#artist").val(),
+                free:true,
+                mp3:$("#mp3").val(),
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+
+            });
+            document.getElementById("title").value=("value","");
+            document.getElementById("artist").value=("value","");
+            document.getElementById("mp3").value=("value","");
+            console.log(myPlaylist)
+        });
+
+
+
+
+
+
+        // AVOID COMMANDS
+
+        $("#playlist-avoid-1").click(function() {
+            myPlaylist.remove(2); // Removes the 3rd item
+            myPlaylist.remove(3); // Ignored unless removeTime=0: Where it removes the 4th item, which was originally the 5th item.
+        });
+    });
+</script>
+{% endblock %}
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+{% block contenido %}
+<div id="jp_container_N" class="jp-video jp-video-270p" role="application" aria-label="media player">
+    <div class="jp-type-playlist">
+        <div id="jquery_jplayer_N" class="jp-jplayer"></div>
+        <div class="jp-gui">
+            <div class="jp-video-play">
+                <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+            </div>
+            <div class="jp-interface">
+                <div class="jp-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                </div>
+                <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                <div class="jp-controls-holder">
+                    <div class="jp-controls">
+                        <button class="jp-previous" role="button" tabindex="0">previous</button>
+                        <button class="jp-play" role="button" tabindex="0">play</button>
+                        <button class="jp-next" role="button" tabindex="0">next</button>
+                        <button class="jp-stop" role="button" tabindex="0">stop</button>
+                    </div>
+                    <div class="jp-volume-controls">
+                        <button class="jp-mute" role="button" tabindex="0">mute</button>
+                        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                        <div class="jp-volume-bar">
+                            <div class="jp-volume-bar-value"></div>
+                        </div>
+                    </div>
+                    <div class="jp-toggles">
+                        <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                        <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+                        <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                    </div>
+                </div>
+                <div class="jp-details">
+                    <div class="jp-title" aria-label="title">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="jp-playlist">
+            <ul>
+                <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+        <div class="jp-no-solution">
+            <span>Update Required</span>
+            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+        </div>
+    </div>
+</div>
+<p style="margin-top:1em;">
+
+
+    <code>add( <a href="javascript:;" id="playlist-add-bubble">{Bubble}</a> | <a href="javascript:;" id="playlist-add-hidden">{Hidden}</a> | <a href="javascript:;" id="playlist-add-tempered-song">{Tempered Song}</a> | <a href="javascript:;" id="playlist-add-lentement">{Lentement}</a> )</code><br />
+    The Stark Palace audio: <code>add( <a href="javascript:;" id="playlist-add-cro-magnon-man">{Cro Magnon Man}</a> | <a href="javascript:;" id="playlist-add-your-face">{Your Face}</a> | <a href="javascript:;" id="playlist-add-cyber-sonnet">{Cyber Sonnet}</a> )</code><br />
+
+</p>
+
+
+
+
+<!-- agregar elementos a mi jplayerplaylist -->
+<p>title</p>
+<textarea id="title" class="materialize-textarea"></textarea>
+<p>artist</p>
+<textarea id="artist" class="materialize-textarea"></textarea>
+<p>mp3</p>
+<textarea id="mp3" class="materialize-textarea"></textarea>
+
+
+<a class="waves-effect waves-light btn" id="agrega">agregar</a>
+{% endblock %}
+{% block scripts %}
+{% endblock %}

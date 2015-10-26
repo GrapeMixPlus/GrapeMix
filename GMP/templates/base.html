@@ -11,8 +11,10 @@
 
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-
+        <script type="text/javascript" src="{% static 'jPlayer-master/dist/jplayer/jquery.jplayer.min.js'%}"></script>
         <script type="text/javascript" src="{% static 'jPlayer-master/dist/add-on/jplayer.playlist.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'jPlayer-master/lib/jquery.min.js' %}"></script>
+
 
         <link type="text/css" href="{% static 'jPlayer-master/dist/skin/blue.monday/css/jplayer.blue.monday.css' %}" rel="stylesheet" />
 
@@ -25,13 +27,17 @@
         <script src="{% static 'js/materialize.js'%}"></script>
         <script src="{% static 'js/init.js'%}"></script>
 
+
+        {% block head %}
+        {% endblock %}
+
+
     </head>
     <body>
 
 
         {% block contenido %}
         {% endblock %}
-        <!-- jQuery -->
 
     </body>
 
