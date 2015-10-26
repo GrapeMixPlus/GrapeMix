@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load static %}
 {% block contenido %}
 
 
-<ul id="dropdown1" class="dropdown-content">
+<ul id="dropdown1" class="dropdown-content" style="heigh:50px;">
     <li><a class="white-text" href="#!">Help</a></li>
     <li class="divider"></li>
     <li><a class="white-text" href="{% url 'GMP:logout' %}">Log Out</a></li>
 </ul>
 
 <nav class="color" role="navigation">
-    <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3">
+    <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3" style="heigh:50px;">
         <ul class="right hide-on-med-and-down">
-            <li><img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle responsive-img"></li>
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Rodrigo Ibarra<i class="material-icons right"></i></a></li>
+            <li><img src="{% get_media_prefix %}/{{user.profile.profile_photo}}" alt="" class="circle responsive-img"></li>
+            <li><a class="dropdown-button" data-activates="dropdown1">{{ user }}<i class="material-icons right"></i></a></li>
         </ul>
     </div>
 </nav>
@@ -22,10 +23,10 @@
 
 <div id="index-banner" class="parallax-container">
     <div id=circle>
-        <img src="{% static 'img/perfil1.jpg' %}" alt="" class="circle z-depth-5">
+        <img src="{% get_media_prefix %}/{{user.profile.profile_photo}}" alt="" class="circle z-depth-5">
     </div>
-    <div class="parallax"><img src="{% static 'img/index.jpg' %}"></div>
-    <h5 class="header center teal-text text-lighten-2">Rodrigo Ibarra</h5>
+    <div class="parallax"><img src="{% get_media_prefix %}/{{user.profile.cover_photo}}"></div>
+    <h5 class="header center teal-text text-lighten-2">{{ user }}</h5>
     <p align="center" class="teal-text">Cordoba, Argentina</p>
     <center><a href="https://www.facebook.com" class="waves-effect waves-light btn-large">Facebook</a></center>
     <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey"><i class="fa fa-angle-double-down"></i></a>

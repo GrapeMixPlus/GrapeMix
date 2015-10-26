@@ -14,6 +14,3 @@ class Profile(models.Model):
     facebook = models.URLField(u'Facebook', max_length=200)
     profile_photo = models.FileField(u'Profile Photo', upload_to='profile/', blank=True, default='profile/profiledef.jpg')
     cover_photo = models.FileField(u'Cover Photo', upload_to='profile/', blank=True, default='profile/coverdef.jpg')
-
-
-
