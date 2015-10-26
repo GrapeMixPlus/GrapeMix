@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from GMP.models import UserProfile
+from GMP.models import Profile
 from GMP.forms import MyUserCreationForm
 from django.contrib import messages
 import logging
@@ -35,6 +35,7 @@ def log_in(request):
         user = authenticate(username=username, password=password)
         if user:
             if user.is_active:
+                Profile.objects.get_or_create(user=user)
                 login(request, user)
                 return redirect('/home')
             else:
