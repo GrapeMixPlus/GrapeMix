@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block contenido %}
+{% block content %}
 <div class="row z-depth-5" id=logup>
     <form class="col s12" method="POST" action="{% url 'GMP:login' %}">{% csrf_token %}
         <div class="row ">

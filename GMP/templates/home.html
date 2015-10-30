@@ -1,14 +1,140 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load static %}
-{% block contenido %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        console.log("tuvieja")
+        var myPlaylist = new jPlayerPlaylist({
+            jPlayer: "#jquery_jplayer_N",
+            cssSelectorAncestor: "#jp_container_N"
+        }, [
+            {
+                title:"Cro Magnon Man",
+                artist:"The Stark Palace",
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            }
+        ], {
+            playlistOptions: {
+                enableRemoveControls: true
+            },
+            swfPath: "../../dist/jplayer",
+            supplied: "webmv, ogv, m4v, oga, mp3",
+            useStateClassSkin: true,
+            autoBlur: false,
+            smoothPlayBar: true,
+            keyEnabled: true,
+            audioFullScreen: true
+        });
 
 
 
+        //add canciones a la playlist
 
+
+        $("#playlist-add-bubble").click(function() {
+            myPlaylist.add({
+                title:"Bubble",
+                artist:"Miaow",
+                free:true,
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        $("#playlist-add-hidden").click(function() {
+            myPlaylist.add({
+                title:"Hidden",
+                artist:"Miaow",
+                free: true,
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        $("#playlist-add-tempered-song").click(function() {
+            myPlaylist.add({
+                title:"Tempered Song",
+                artist:"Miaow",
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        $("#playlist-add-lentement").click(function() {
+            myPlaylist.add({
+                title:"Lentement",
+                artist:"Miaow",
+                mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+            });
+        });
+
+        // The Stark Palace tracks
+
+        $("#playlist-add-cro-magnon-man").click(function() {
+            myPlaylist.add({
+                title:"Cro Magnon Man",
+                artist:"The Stark Palace",
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            });
+        });
+
+        $("#playlist-add-your-face").click(function() {
+            myPlaylist.add({
+                title:"Your Face",
+                artist:"The Stark Palace",
+                mp3:"http://www.    jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            });
+        });
+
+        $("#playlist-add-cyber-sonnet").click(function() {
+            myPlaylist.add({
+                title:"Cyber Sonnet",
+                artist:"The Stark Palace",
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+            });
+        });
+
+
+        // agrega temas con el boton
+        $("#agrega").click(function() {
+            console.log("tu vieja")
+            myPlaylist.add({
+                title:$("#title").val(),
+                artist:$("#artist").val(),
+                free:true,
+                mp3:$("#mp3").val(),
+                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
+
+            });
+            document.getElementById("title").value=("value","");
+            document.getElementById("artist").value=("value","");
+            document.getElementById("mp3").value=("value","");
+            console.log(myPlaylist)
+        });
+
+        // AVOID COMMANDS
+
+        $("#playlist-avoid-1").click(function() {
+            myPlaylist.remove(2); // Removes the 3rd item
+            myPlaylist.remove(3); // Ignored unless removeTime=0: Where it removes the 4th item, which was originally the 5th item.
+        });
+    });
+</script>
+
+{% endblock %}
+
+{% block content %}
 <ul id="dropdown1" class="dropdown-content">
 
-    <li><a class="white-text" href="#!">Help</a></li>
+    <li><a class="white-text" href="{% url 'GMP:edit_profile' %}">Edit Profile</a></li>
     <li class="divider"></li>
     <li><a class="white-text" href="{% url 'GMP:logout' %}">Log Out</a></li>
 </ul>
@@ -146,6 +272,8 @@
             </ul>
         </div>
     </div>
+
+
     <div id="test2" class="col s12">Test 2</div>
     <div id="test3" class="col s12">
         <div id="jp_container_N" class="jp-video jp-video-270p" role="application" aria-label="media player">
@@ -249,140 +377,4 @@
 {% endblock %}
 
 
-
-
-{% block scripts %}
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        var myPlaylist = new jPlayerPlaylist({
-            jPlayer: "#jquery_jplayer_N",
-            cssSelectorAncestor: "#jp_container_N"
-        }, [
-            {
-                title:"Cro Magnon Man",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
-            }
-        ], {
-            playlistOptions: {
-                enableRemoveControls: true
-            },
-            swfPath: "../../dist/jplayer",
-            supplied: "webmv, ogv, m4v, oga, mp3",
-            useStateClassSkin: true,
-            autoBlur: false,
-            smoothPlayBar: true,
-            keyEnabled: true,
-            audioFullScreen: true
-        });
-
-
-
-        //add canciones a la playlist
-
-
-        $("#playlist-add-bubble").click(function() {
-            myPlaylist.add({
-                title:"Bubble",
-                artist:"Miaow",
-                free:true,
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
-            });
-        });
-
-        $("#playlist-add-hidden").click(function() {
-            myPlaylist.add({
-                title:"Hidden",
-                artist:"Miaow",
-                free: true,
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
-            });
-        });
-
-        $("#playlist-add-tempered-song").click(function() {
-            myPlaylist.add({
-                title:"Tempered Song",
-                artist:"Miaow",
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
-            });
-        });
-
-        $("#playlist-add-lentement").click(function() {
-            myPlaylist.add({
-                title:"Lentement",
-                artist:"Miaow",
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
-            });
-        });
-
-        // The Stark Palace tracks
-
-        $("#playlist-add-cro-magnon-man").click(function() {
-            myPlaylist.add({
-                title:"Cro Magnon Man",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
-            });
-        });
-
-        $("#playlist-add-your-face").click(function() {
-            myPlaylist.add({
-                title:"Your Face",
-                artist:"The Stark Palace",
-                mp3:"http://www.    jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
-            });
-        });
-
-        $("#playlist-add-cyber-sonnet").click(function() {
-            myPlaylist.add({
-                title:"Cyber Sonnet",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
-            });
-        });
-
-
-
-
-        // agrega temas con el boton
-        $("#agrega").click(function() {
-            console.log("tu vieja")
-            myPlaylist.add({
-                title:$("#title").val(),
-                artist:$("#artist").val(),
-                free:true,
-                mp3:$("#mp3").val(),
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
-
-            });
-            document.getElementById("title").value=("value","");
-            document.getElementById("artist").value=("value","");
-            document.getElementById("mp3").value=("value","");
-            console.log(myPlaylist)
-        });
-
-
-
-
-
-
-        // AVOID COMMANDS
-
-        $("#playlist-avoid-1").click(function() {
-            myPlaylist.remove(2); // Removes the 3rd item
-            myPlaylist.remove(3); // Ignored unless removeTime=0: Where it removes the 4th item, which was originally the 5th item.
-        });
-    });
-</script>
-
-{% endblock %}
 
