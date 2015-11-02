@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+
+{% block contenido %}
+
+<head>
+    <nav class="color" role="navigation">
+        <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3" style="heigh:50px;">
+            <ul class="right hide-on-med-and-down">
+                <li></li>
+                <a href="{% url 'GMP:home' %}"><li>Inicio</li></a>
+            </ul>
+        </div>
+    </nav>
+</head>
+
+<body>
+    <div class="form_perfil">
+        <form class="col s12">
+            <div id="form_name">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">Nombre</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">Apellido</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                        <label>Descripción</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="#" type="text" class="#">
+                        <label>Social</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+            </div>
+            <div id="radio_btn">
+                <p>
+                    <input name="group1" type="radio" id="test1" />
+                    <label for="test1">Hombre</label>
+                </p>
+                <p>
+                    <input name="group1" type="radio" id="test2" />
+                    <label for="test2">Mujer</label>
+                </p>
+            </div>
+            <div id="file_img" class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" multiple>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Selecciona una foto de perfil">
+                </div>
+            </div>
+            <div class="bot_profile">
+                <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
+                <button type="submit" class="white-text waves-effect orange waves btn" value="Register">GUARDAR CAMBIOS</button>
+            </div>
+        </form>
+    </div><br><br><br>
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Consultas</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Contactenos</h5>
+                <ul style="color:white;">
+                    <i class="fa fa-facebook  fa-4x"></i>
+                    <i class="fa fa-instagram fa-4x"></i>
+                    <i class="fa fa-twitter fa-4x"></i>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            #GrapeMix by Materialize
+            <a class="grey-text text-lighten-4 right" href="#!">Mensaje</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+{% endblock %}
+
+
+
+
+
+
