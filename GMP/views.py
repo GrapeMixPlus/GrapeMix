@@ -67,6 +67,14 @@ def home(request):
     context = RequestContext(request)
     return render_to_response('home.html', context)
 
+@login_required(login_url='/login')
 def profile(request):
-    context = RequestContext(request)
-    return render_to_response('profile.html', context)
+    if request.method=='POST':
+        formulario = UserCreationForm(request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            return redirect(reverse('GMP:home'))
+    else:
+        formulario = UserCreationForm()
+    return render_to_response('profile.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
