@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 
 class Profile(models.Model):
@@ -14,3 +15,18 @@ class Profile(models.Model):
     facebook = models.URLField(u'Facebook', max_length=200)
     profile_photo = models.FileField(u'Profile Photo', upload_to='profile/', blank=True, default='profile/profiledef.jpg')
     cover_photo = models.FileField(u'Cover Photo', upload_to='profile/', blank=True, default='profile/coverdef.jpg')
+
+class Athor(models.Model):
+    name = ForeingKey(u'Name', max_lenght=20)
+
+class Song(models.Model):
+    tittle = models.CharField(u'Tittle', max_length=50)
+    author = models.ForeingKey(Author)
+    album = models.ManyToOne(u'Album', max_lenght=20)
+    song = models.FileField(u'Song', upload_to='multimedia/', blank=False)
+
+class PlayList(models.Model):
+    name = models.CharField(u'Name', max_lenght=20)
+    songs = models.ArrayField(
+        models.ManyToManyField(Song)
+    )
