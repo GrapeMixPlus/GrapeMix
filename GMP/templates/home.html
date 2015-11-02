@@ -8,26 +8,26 @@
     $(document).ready(function(){
         console.log("tuvieja")
         var myPlaylist = new jPlayerPlaylist({
-            jPlayer: "#jquery_jplayer_N",
-            cssSelectorAncestor: "#jp_container_N"
+            jPlayer: "#jquery_jplayer_1",
+            cssSelectorAncestor: "#jp_container_1"
         }, [
             {
                 title:"Cro Magnon Man",
                 artist:"The Stark Palace",
                 mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
             }
+
         ], {
             playlistOptions: {
                 enableRemoveControls: true
             },
             swfPath: "../../dist/jplayer",
-            supplied: "webmv, ogv, m4v, oga, mp3",
+            supplied: "oga, mp3",
+            wmode: "window",
             useStateClassSkin: true,
             autoBlur: false,
             smoothPlayBar: true,
-            keyEnabled: true,
-            audioFullScreen: true
+            keyEnabled: true
         });
 
 
@@ -39,9 +39,7 @@
             myPlaylist.add({
                 title:"Bubble",
                 artist:"Miaow",
-                free:true,
                 mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
             });
         });
 
@@ -49,9 +47,7 @@
             myPlaylist.add({
                 title:"Hidden",
                 artist:"Miaow",
-                free: true,
                 mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
             });
         });
 
@@ -60,7 +56,6 @@
                 title:"Tempered Song",
                 artist:"Miaow",
                 mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
             });
         });
 
@@ -69,7 +64,6 @@
                 title:"Lentement",
                 artist:"Miaow",
                 mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
             });
         });
 
@@ -80,7 +74,6 @@
                 title:"Cro Magnon Man",
                 artist:"The Stark Palace",
                 mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
             });
         });
 
@@ -88,8 +81,7 @@
             myPlaylist.add({
                 title:"Your Face",
                 artist:"The Stark Palace",
-                mp3:"http://www.    jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+                mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
             });
         });
 
@@ -98,7 +90,6 @@
                 title:"Cyber Sonnet",
                 artist:"The Stark Palace",
                 mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
-                poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
             });
         });
 
@@ -109,9 +100,7 @@
             myPlaylist.add({
                 title:$("#title").val(),
                 artist:$("#artist").val(),
-                free:true,
                 mp3:$("#mp3").val(),
-                poster: "http://www.jplayer.org/audio/poster/Miaow_640x360.png"
 
             });
             document.getElementById("title").value=("value","");
@@ -276,49 +265,41 @@
 
     <div id="test2" class="col s12">Test 2</div>
     <div id="test3" class="col s12">
-        <div id="jp_container_N" class="jp-video jp-video-270p" role="application" aria-label="media player">
+
+
+        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+        <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
             <div class="jp-type-playlist">
-                <div id="jquery_jplayer_N" class="jp-jplayer"></div>
-                <div class="jp-gui">
-                    <div class="jp-video-play">
-                        <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+                <div class="jp-gui jp-interface">
+                    <div class="jp-controls">
+                        <button class="jp-previous" role="button" tabindex="0">previous</button>
+                        <button class="jp-play" role="button" tabindex="0">play</button>
+                        <button class="jp-next" role="button" tabindex="0">next</button>
+                        <button class="jp-stop" role="button" tabindex="0">stop</button>
                     </div>
-                    <div class="jp-interface">
-                        <div class="jp-progress">
-                            <div class="jp-seek-bar">
-                                <div class="jp-play-bar"></div>
-                            </div>
+                    <div class="jp-progress">
+                        <div class="jp-seek-bar">
+                            <div class="jp-play-bar"></div>
                         </div>
+                    </div>
+                    <div class="jp-volume-controls">
+                        <button class="jp-mute" role="button" tabindex="0">mute</button>
+                        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                        <div class="jp-volume-bar">
+                            <div class="jp-volume-bar-value"></div>
+                        </div>
+                    </div>
+                    <div class="jp-time-holder">
                         <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
                         <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-                        <div class="jp-controls-holder">
-                            <div class="jp-controls">
-                                <button class="jp-previous" role="button" tabindex="0">previous</button>
-                                <button class="jp-play" role="button" tabindex="0">play</button>
-                                <button class="jp-next" role="button" tabindex="0">next</button>
-                                <button class="jp-stop" role="button" tabindex="0">stop</button>
-                            </div>
-                            <div class="jp-volume-controls">
-                                <button class="jp-mute" role="button" tabindex="0">mute</button>
-                                <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-                                <div class="jp-volume-bar">
-                                    <div class="jp-volume-bar-value"></div>
-                                </div>
-                            </div>
-                            <div class="jp-toggles">
-                                <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-                                <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
-                                <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
-                            </div>
-                        </div>
-                        <div class="jp-details">
-                            <div class="jp-title" aria-label="title">&nbsp;</div>
-                        </div>
+                    </div>
+                    <div class="jp-toggles">
+                        <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                        <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
                     </div>
                 </div>
                 <div class="jp-playlist">
                     <ul>
-                        <!-- The method Playlist.displayPlaylist() uses this unordered list -->
                         <li>&nbsp;</li>
                     </ul>
                 </div>
@@ -328,6 +309,8 @@
                 </div>
             </div>
         </div>
+
+
         <p style="margin-top:1em;">
 
 
