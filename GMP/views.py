@@ -11,6 +11,7 @@ from django.contrib import messages
 import logging
 logger = logging.getLogger('django')
 import os
+from GMP.forms import EditSocialProfileForm, MyUserCreationForm
 
 def inup(request):
     return render_to_response('grapemix.html')
@@ -67,14 +68,50 @@ def home(request):
     context = RequestContext(request)
     return render_to_response('home.html', context)
 
+
 @login_required(login_url='/login')
 def profile(request):
-    if request.method=='POST':
-        formulario = UserCreationForm(request.POST)
-        if formulario.is_valid:
-            formulario.save()
-            return redirect(reverse('GMP:home'))
-    else:
-        formulario = UserCreationForm()
-    return render_to_response('profile.html',{'formulario':formulario}, context_instance=RequestContext(request))
+    args = {}
+    context = RequestContext(request)
+    try:
+        user = request.user
+    except User.DoesNotExist:
+        raise Http404('El usuario no existe')
 
+    if request.method == 'POST':
+        form = EditSocialProfileForm(request.POST, request.FILES,
+                instance=user.profile)
+
+        if form.is_valid():
+            logger.info(form.instance)
+            form.save()
+        if not user.profile.profile_photo:
+            user.profile.profile_photo ='../multimedia/profile/profiledef.jpg'
+            user.profile.save()
+    else:
+        form = EditSocialProfileForm(instance=user.profile)
+    args['form'] = form
+    return render(request, 'profile.html', args)
+
+'''@login_required(login_url='/login')
+def profile(request):
+    args = {}
+    context = RequestContext(request)
+    try:
+        user = request.user
+    except User.DoesNotExist:
+        raise Http404('El usuario no existe')
+
+    if request.method == 'POST':
+        form = EditSocialProfileForm(request.POST, request.FILES,
+                instance=user.profile)
+
+        if form.is_valid():
+            logger.info(form.instance)
+            form.save()
+    else:
+        form = EditSocialProfileForm(instance=user.profile)
+    args['form'] = form
+    return render(request, 'profile.html', args)
+
+'''

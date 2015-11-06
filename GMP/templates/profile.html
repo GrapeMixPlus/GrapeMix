@@ -17,9 +17,10 @@
 
 <body>
     <div class="form_perfil">
-        <form class="col s12" method="post" action="#">{% csrf_token %}
+        <form class="col s12" method="post"  action="{% url 'GMP:profile' %} "enctype="multipart/form-data">{% csrf_token %}
             <div id="form_name">
                 <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Edit {{ user }} profile:</h5><center>
+                    {{ form.as_p }}
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="city" type="text" class="validate">
@@ -59,7 +60,7 @@
             </div>
             <div class="bot_profile">
                 <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
-                <button type="submit" class="white-text waves-effect orange waves btn" value="Register">GUARDAR CAMBIOS</button>
+                <button type="submit" class="white-text waves-effect orange waves btn">GUARDAR CAMBIOS</button>
             </div>
         </form>
     </div><br><br><br>

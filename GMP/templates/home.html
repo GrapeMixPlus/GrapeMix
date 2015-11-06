@@ -144,8 +144,8 @@
     </div>
     <div class="parallax"><img src="{% get_media_prefix %}/{{user.profile.cover_photo}}"></div>
     <h5 class="header center teal-text text-lighten-2">{{ user }}</h5>
-    <p align="center" class="teal-text">Cordoba, Argentina</p>
-    <center><a href="https://www.facebook.com" class="waves-effect waves-light btn-large">Facebook</a></center>
+    <p align="center" class="teal-text">{{ user.profile.city }}, {{ user.profile.country }}</p>
+    <center><a href="{{ user.profile.facebook }}" class="waves-effect waves-light btn-large">Facebook</a></center>
     <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey"><i class="fa fa-angle-double-down"></i></a>
 </div>
 

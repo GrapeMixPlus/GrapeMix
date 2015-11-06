@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms.utils import ErrorList
 from django.contrib.auth.models import User
 import logging
+from GMP.models import Profile
 logger = logging.getLogger('django')
 
 class DivErrorList(ErrorList):
@@ -26,3 +27,21 @@ class MyUserCreationForm(UserCreationForm):
                 field.label = '* ' + str(field.label)
 
 
+
+class EditSocialProfileForm(forms.ModelForm):
+
+    error_css_class = 'alert alert-danger'
+
+    class Meta:
+
+        model = Profile
+        exclude = ('user', )
+
+
+    def __init__(self, *args, **kwargs):
+        super(EditSocialProfileForm, self).__init__(*args, **kwargs)
+        for (field_name, field) in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            if field.required:
+                field.widget.attrs['placeholder'] = 'Requerido'
+                field.label = '* ' + field.label

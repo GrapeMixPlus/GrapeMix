@@ -10,7 +10,6 @@ GENRE_CHOICES = (('m'), ('f'))
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
-    name = models.CharField(u'Name', max_length=20)
     country = models.CharField(u'Country', max_length=20)
     city = models.CharField(u'City', max_length=50)
     facebook = models.URLField(u'Facebook', max_length=200)
