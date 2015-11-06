@@ -162,70 +162,70 @@
             <div class="col s3 m2" >
                 <div class="card" >
                     <div class="card-image" >
-                        <img src="{% static 'img/tarjet.jpg' %}" >
+                        <img src="{% static 'img/rolling.jpg' %}" >
                         <span class="card-title">The Rolling Stones: ¡gira por Latinoamérica!</span>
                     </div>
                     <div class="card-content">
                         <p>Tras el enorme éxito de su gira norteamericana en 2015, ZIP CODE TOUR, los legendarios Rolling Stones van a girar por América Latina en 2016.</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">+info MTVLA</a>
+                        <a href="http://noticias.mtvla.com/articulo/rolling-stones-latinoamerica-2016">+info MTVLA</a>
                     </div>
                 </div>
             </div>
             <div class="col s3 m2">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{% static 'img/tarjet.jpg' %}">
+                        <img src="{% static 'img/sia.jpg' %}">
                         <span class="card-title">Sia nos adelanta sobre su nuevo disco.</span>
                     </div>
                     <div class="card-content">
                         <p>La exitosa cantante australiana Sia lanzará un nuevo disco, “This is Acting”, para el cual hasta abrió una cuenta de Instagram. <br>¡Ya era hora, Sia!</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">+info MTVLA</a>
+                        <a href="http://noticias.mtvla.com/articulo/sia-nuevo-disco-this-is-the-acting">+info MTVLA</a>
                     </div>
                 </div>
             </div>
             <div class="col s3 m2">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{% static 'img/tarjet.jpg' %}">
+                        <img src="{% static 'img/cream.jpg' %}">
                         <span class="card-title">Line Up Creamfield 2015</span>
                     </div>
                     <div class="card-content">
                         <p>Consulta el Line Up y mucho mas, sobre el 15 aniversario de Creamfields BA.<br> Material exclusivo #GrapeMix</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">creamfieldsba.com.ar</a>
+                        <a href="www.creamfieldsba.com.ar/lineup.html">creamfieldsba.com.ar</a>
                     </div>
                 </div>
             </div>
             <div class="col s3 m2">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{% static 'img/tarjet.jpg' %}">
+                        <img src="{% static 'img/iastin.jpg' %}">
                         <span class="card-title">MTV EMA 2015: ¡Justin Bieber se llevó la noche!</span>
                     </div>
                     <div class="card-content">
                         <p>Justin Bieber se llevó completamente la noche (lo sentimos, Taylor Swift, pero es la realidad). Ganó 6 premios. Y pisó el escenario para cantar su sencillo "What Do You Mean?"</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">+info MTVLA</a>
+                        <a href="http://noticias.mtvla.com/articulo/justin-emas-2015-presentacion">+info MTVLA</a>
                     </div>
                 </div>
             </div>
             <div class="col s3 m2">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{% static 'img/tarjet.jpg' %}">
+                        <img src="{% static 'img/rihana.jpg' %}">
                         <span class="card-title">Rihanna fue sustituida para el Victoria's Secret Fashion Show</span>
                     </div>
                     <div class="card-content">
                         <p>Rihanna oficialmente canceló su presentación en el desfile más esperado por los hombres porque, de acuerdo con la cantante, necesita el tiempo extra para dejar todo listo para el lanzamiento de su nuevo álbum.</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">+info MTVLA</a>
+                        <a href="http://noticias.mtvla.com/articulo/rihanna-cancela-victorias-secret-show">+info MTVLA</a>
                     </div>
                 </div>
             </div>
