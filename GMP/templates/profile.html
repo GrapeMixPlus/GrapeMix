@@ -21,79 +21,41 @@
             <div id="form_name">
                 <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Edit {{ user }} profile:</h5><center>
                     {{ form.as_p }}
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="city" type="text" class="validate">
-                        <label for="city">City</label>
+                    <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
+                    <button type="submit" class="white-text waves-effect orange waves btn">GUARDAR CAMBIOS</button>
+                    </div>
+                    </form>
+            </div><br><br><br>
+
+
+            <footer class="page-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Consultas</h5>
+                            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                        </div>
+                        <div class="col l4 offset-l2 s12">
+                            <h5 class="white-text">Contactenos</h5>
+                            <ul style="color:white;">
+                                <i class="fa fa-facebook  fa-4x"></i>
+                                <i class="fa fa-instagram fa-4x"></i>
+                                <i class="fa fa-twitter fa-4x"></i>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="country" type="text" class="validate">
-                        <label for="country">Country</label>
+                <div class="footer-copyright">
+                    <div class="container">
+                        #GrapeMix by Materialize
+                        <a class="grey-text text-lighten-4 right" href="#!">Mensaje</a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="facebook" type="text" class="validate">
-                        <label for="facebook">Facebook URL</label>
-                    </div>
-                </div>
-            </div>
-            <div id="file_img" class="file-field input-field">
-                <div class="btn">
-                    <span>Profile</span>
-                    <input type="file" multiple>
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Profile photo">
-                </div>
-            </div>
-            <div id="file_img" class="file-field input-field">
-                <div class="btn">
-                    <span>Cover</span>
-                    <input type="file" multiple>
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Cover photo">
-                </div>
-            </div>
-            <div class="bot_profile">
-                <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
-                <button type="submit" class="white-text waves-effect orange waves btn">GUARDAR CAMBIOS</button>
-            </div>
-        </form>
-    </div><br><br><br>
+            </footer>
 
+            </body>
 
-<footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Consultas</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Contactenos</h5>
-                <ul style="color:white;">
-                    <i class="fa fa-facebook  fa-4x"></i>
-                    <i class="fa fa-instagram fa-4x"></i>
-                    <i class="fa fa-twitter fa-4x"></i>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            #GrapeMix by Materialize
-            <a class="grey-text text-lighten-4 right" href="#!">Mensaje</a>
-        </div>
-    </div>
-</footer>
-
-</body>
-
-{% endblock %}
+        {% endblock %}
 
 
 
