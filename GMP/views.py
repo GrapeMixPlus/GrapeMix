@@ -93,19 +93,3 @@ def profile(request):
     args['form'] = form
     return render(request, 'profile.html', args)
 
-
-def song(request):
-    args = {}
-    context = RequestContext(request)
-
-    if request.method == 'POST':
-        form = UpSongForm(request.POST, request.FILES,
-                          instance=song)
-
-        if form.is_valid():
-            form.save()
-
-    else:
-        form = UpSongForm(instance=song)
-    args['form'] = form
-    return render(request, 'home.html', args)
