@@ -93,25 +93,3 @@ def profile(request):
     args['form'] = form
     return render(request, 'profile.html', args)
 
-'''@login_required(login_url='/login')
-def profile(request):
-    args = {}
-    context = RequestContext(request)
-    try:
-        user = request.user
-    except User.DoesNotExist:
-        raise Http404('El usuario no existe')
-
-    if request.method == 'POST':
-        form = EditSocialProfileForm(request.POST, request.FILES,
-                instance=user.profile)
-
-        if form.is_valid():
-            logger.info(form.instance)
-            form.save()
-    else:
-        form = EditSocialProfileForm(instance=user.profile)
-    args['form'] = form
-    return render(request, 'profile.html', args)
-
-'''

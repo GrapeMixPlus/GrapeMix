@@ -35,7 +35,7 @@ class EditSocialProfileForm(forms.ModelForm):
     class Meta:
 
         model = Profile
-        exclude = ('user', )
+        exclude = ('user','name' )
 
 
     def __init__(self, *args, **kwargs):
