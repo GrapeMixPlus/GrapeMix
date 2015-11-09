@@ -25,9 +25,9 @@ class Artist(models.Model):
 
 class Song(models.Model):
     tittle = models.CharField(u'Tittle', max_length=50)
-    #!author = models.ForeignKey(Artist)
+    author = models.ForeignKey(Artist)
     album = models.CharField(u'Album', max_length=20)
-    song = models.FileField(u'Song', upload_to='multimedia/', blank=False)
+    song = models.FileField(u'Song', upload_to='songs/', blank=False)
 
 class PlayList(models.Model):
     name = models.CharField(u'Name', max_length=20)

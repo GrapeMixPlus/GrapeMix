@@ -99,12 +99,8 @@ def song(request):
     context = RequestContext(request)
     song = Song()
     print >> sys.stderr, args
-    if request.method == 'post':
-        print >> sys.stderr, args
-        formsong = UpSongForm(request.POST, request.FILES,
-                    instance=song)
-
-
+    if request.method == 'POST':
+        formsong = UpSongForm(request.POST, request.FILES, instance=song)
         if formsong.is_valid():
             logger.info(formsong.instance)
             formsong.save()
