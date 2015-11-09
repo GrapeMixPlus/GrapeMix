@@ -5539,7 +5539,15 @@ small {
   border-radius: 2px; }
   .card .card-title {
     color: #fff;
+<<<<<<< HEAD
+<<<<<<< HEAD
+    font-size: 19px;
+=======
     font-size: 24px;
+>>>>>>> GrapeMix/master
+=======
+    font-size: 24px;
+>>>>>>> GrapeMix/master
     font-weight: 300; }
     .card .card-title.activator {
       cursor: pointer; }
