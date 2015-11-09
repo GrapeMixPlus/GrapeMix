@@ -18,14 +18,14 @@ class Profile(models.Model):
     cover_photo = models.FileField(u'Cover Photo', upload_to='profile/', blank=True, default='profile/coverdef.jpg')
 
 class Artist(models.Model):
-    name = models.CharField(u'Name', max_length=20)
+    name = models.CharField(u'Name', max_length=20, default="Artist")
 
     def __str__(self):
         return self.name
 
 class Song(models.Model):
     tittle = models.CharField(u'Tittle', max_length=50)
-    author = models.ForeignKey(Artist)
+    #!author = models.ForeignKey(Artist)
     album = models.CharField(u'Album', max_length=20)
     song = models.FileField(u'Song', upload_to='multimedia/', blank=False)
 

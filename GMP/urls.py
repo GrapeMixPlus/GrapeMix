@@ -7,4 +7,5 @@ urlpatterns = patterns('',
                        url(r'^out/$' , 'GMP.views.log_out', name='logout'),
                        url(r'^logup/$', "GMP.views.logup", name='logup'),
                        url(r'^profile/$', "GMP.views.profile", name='profile'),
+                       url(r'^upsong/$', "GMP.views.song", name='upsong'),
                       )

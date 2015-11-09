@@ -324,20 +324,8 @@
 
 
 <a class="waves-effect waves-light btn" id="agrega">agregar</a>-->
+        <li><a class="white-text" href="{% url 'GMP:upsong' %}">Upload</a></li>
 
-
-        <div class="form_song">
-            <form class="col s12" method="post"  action="{% url 'GMP:home' %} "enctype="multipart/form-data">{% csrf_token %}
-                <div id="form_name">
-                    <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Upload Song:</h5></center>
-                    {{ form.as_p }}
-                    <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
-                    <button type="submit" class="white-text waves-effect orange waves btn">Upload</button>
-                </div>
-            </form>
-        </div>
-
-d
 
     </div>
 </div>

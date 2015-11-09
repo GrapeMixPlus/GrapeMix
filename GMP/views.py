@@ -5,13 +5,13 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from GMP.models import Profile
-from GMP.forms import MyUserCreationForm
+from GMP.models import Profile, Song
 from django.contrib import messages
 import logging
+import sys
 logger = logging.getLogger('django')
 import os
-from GMP.forms import EditSocialProfileForm, MyUserCreationForm
+from GMP.forms import EditSocialProfileForm, MyUserCreationForm, UpSongForm
 
 def inup(request):
     return render_to_response('grapemix.html')
@@ -92,4 +92,25 @@ def profile(request):
         form = EditSocialProfileForm(instance=user.profile)
     args['form'] = form
     return render(request, 'profile.html', args)
+
+
+def song(request):
+    args = {}
+    context = RequestContext(request)
+    song = Song()
+    print >> sys.stderr, args
+    if request.method == 'post':
+        print >> sys.stderr, args
+        formsong = UpSongForm(request.POST, request.FILES,
+                    instance=song)
+
+
+        if formsong.is_valid():
+            logger.info(formsong.instance)
+            formsong.save()
+
+    else:
+        formsong = UpSongForm(instance=song)
+    args['formsong'] = formsong
+    return render(request, 'upsong.html', args)
 
