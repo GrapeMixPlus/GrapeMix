@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms.utils import ErrorList
 from django.contrib.auth.models import User
 import logging
-from GMP.models import Profile
+from GMP.models import Profile, Song
 logger = logging.getLogger('django')
 
 class DivErrorList(ErrorList):
@@ -40,6 +40,26 @@ class EditSocialProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(EditSocialProfileForm, self).__init__(*args, **kwargs)
+        for (field_name, field) in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            if field.required:
+                field.widget.attrs['placeholder'] = 'Requerido'
+                field.label = '* ' + field.label
+
+
+
+class UpSongForm(forms.ModelForm):
+
+    error_css_class = 'alert alert-danger'
+
+    class Meta:
+
+        model = Song
+        exclude = ('user', )
+
+
+    def __init__(self, *args, **kwargs):
+        super(UpSongForm, self).__init__(*args, **kwargs)
         for (field_name, field) in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             if field.required:

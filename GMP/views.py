@@ -93,25 +93,19 @@ def profile(request):
     args['form'] = form
     return render(request, 'profile.html', args)
 
-'''@login_required(login_url='/login')
-def profile(request):
+
+def song(request):
     args = {}
     context = RequestContext(request)
-    try:
-        user = request.user
-    except User.DoesNotExist:
-        raise Http404('El usuario no existe')
 
     if request.method == 'POST':
-        form = EditSocialProfileForm(request.POST, request.FILES,
-                instance=user.profile)
+        form = UpSongForm(request.POST, request.FILES,
+                          instance=song)
 
         if form.is_valid():
-            logger.info(form.instance)
             form.save()
-    else:
-        form = EditSocialProfileForm(instance=user.profile)
-    args['form'] = form
-    return render(request, 'profile.html', args)
 
-'''
+    else:
+        form = UpSongForm(instance=song)
+    args['form'] = form
+    return render(request, 'home.html', args)

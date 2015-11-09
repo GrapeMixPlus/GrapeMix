@@ -19,10 +19,10 @@
     <div class="form_perfil">
         <form class="col s12" method="post"  action="{% url 'GMP:profile' %} "enctype="multipart/form-data">{% csrf_token %}
             <div id="form_name">
-                <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Edit {{ user }} profile:</h5><center>
+                <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Edit {{ user }} profile:</h5>
                     {{ form.as_p }}
                     <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
-                    <button type="submit" class="white-text waves-effect orange waves btn">GUARDAR CAMBIOS</button>
+                    <button type="submit" class="white-text waves-effect orange waves btn">GUARDAR CAMBIOS</button></center>
                     </div>
                     </form>
             </div><br><br><br>

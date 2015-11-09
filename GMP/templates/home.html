@@ -319,16 +319,31 @@
 
         </p>
 
-        <!-- agregar elementos a mi jplayerplaylist -->
-        <p>title</p>
-        <textarea id="title" class="materialize-textarea"></textarea>
-        <p>artist</p>
-        <textarea id="artist" class="materialize-textarea"></textarea>
-        <p>mp3</p>
-        <textarea id="mp3" class="materialize-textarea"></textarea>
+        <!-- agregar elementos a mi jplayerplaylist
+<p>title</p>
+<textarea id="title" class="materialize-textarea"></textarea>
+<p>artist</p>
+<textarea id="artist" class="materialize-textarea"></textarea>
+<p>mp3</p>
+<textarea id="mp3" class="materialize-textarea"></textarea>
 
 
-        <a class="waves-effect waves-light btn" id="agrega">agregar</a>
+<a class="waves-effect waves-light btn" id="agrega">agregar</a>-->
+
+
+        <div class="form_song">
+            <form class="col s12" method="post"  action="{% url 'GMP:home' %} "enctype="multipart/form-data">{% csrf_token %}
+                <div id="form_name">
+                    <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Upload Song:</h5></center>
+                    {{ form.as_p }}
+                    <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
+                    <button type="submit" class="white-text waves-effect orange waves btn">Upload</button>
+                </div>
+            </form>
+        </div>
+
+d
+
     </div>
 </div>
 
@@ -342,7 +357,7 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Contactenos</h5>
                 <ul style="color:white;">
-                    <i class="fa fa-facebook  fa-4x"></i>
+                    <i class="fa fa-facebook fa-4x"></i>
                     <i class="fa fa-instagram fa-4x"></i>
                     <i class="fa fa-twitter fa-4x"></i>
                 </ul>
