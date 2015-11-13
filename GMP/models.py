@@ -32,3 +32,8 @@ class Song(models.Model):
 class PlayList(models.Model):
     name = models.CharField(u'Name', max_length=20)
 
+class New(models.Model):
+    tittle = models.CharField(u'Tittle', max_length=20)
+    text = models.CharField(u'Body', max_length=80)
+    link = models.URLField(u'Link', max_length=200)
+    picture = models.FileField(u'Photo', upload_to='news/', blank=True, default='news/defnew.jpg')
