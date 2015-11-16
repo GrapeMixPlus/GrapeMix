@@ -300,8 +300,16 @@
 
 <a class="waves-effect waves-light btn" id="agrega">agregar</a>-->
         <li><a class="white-text" href="{% url 'GMP:upsong' %}">Upload</a></li>
-
-
+        {% for song in songs %}
+        <div>
+            <h6>
+                {{song.tittle}}
+            </h6>
+            <p class="grey-text">By {{song.author}}</p>
+            <p class="white-text">Album: {{song.album}}<p>
+            <div class="divider"></div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
