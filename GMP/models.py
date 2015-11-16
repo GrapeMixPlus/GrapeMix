@@ -27,12 +27,10 @@ class Song(models.Model):
     class Meta:
         verbose_name = "Song"
         verbose_name_plural = "Songs"
-        ordering=['-fecha']
     tittle = models.CharField(u'Tittle', max_length=50)
     author = models.ForeignKey(Artist)
     album = models.CharField(u'Album', max_length=20)
     song = models.FileField(u'Song', upload_to='songs/', blank=False)
-    fecha = models.DateTimeField(u'Fecha del Mensaje', auto_now_add=True)
 
 class PlayList(models.Model):
     name = models.CharField(u'Name', max_length=20)
