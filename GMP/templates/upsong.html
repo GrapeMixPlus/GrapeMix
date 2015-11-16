@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'home.html' %}
 {% load staticfiles %}
 {% load static %}
 
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="form_perfil">
-        <form class="col s12" method="post"  action="{% url 'GMP:upsong' %} "enctype="multipart/form-data">
+        <form class="col s12" method='POST'  action="{% url 'GMP:upsong' %} "enctype="multipart/form-data">
             {% csrf_token %}
             <!--<input type="hidden" name="song_id" value="{{objetoSong.id}}"/>-->
             <div id="form_name">
@@ -25,34 +25,7 @@
                 <button type="submit" class="white-text waves-effect orange waves btn">Upload</button></center>
             </div>
         </form>
-    </div><br><br><br>
-
-
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Consultas</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Contactenos</h5>
-                    <ul style="color:white;">
-                        <i class="fa fa-facebook  fa-4x"></i>
-                        <i class="fa fa-instagram fa-4x"></i>
-                        <i class="fa fa-twitter fa-4x"></i>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                #GrapeMix by Materialize
-                <a class="grey-text text-lighten-4 right" href="#!">Mensaje</a>
-            </div>
-        </div>
-    </footer>
-
+    </div>
 </body>
 
 {% endblock %}
