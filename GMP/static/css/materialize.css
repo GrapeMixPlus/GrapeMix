@@ -1773,7 +1773,13 @@ sub {
  * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
+<<<<<<< HEAD
+  border: 0;
+  margin-right: 20px;
+}
+=======
   border: 0; }
+>>>>>>> GrapeMix/master
 
 /**
  * Correct overflow not hidden in IE 9/10/11.

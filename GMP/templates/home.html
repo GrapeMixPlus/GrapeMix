@@ -5,117 +5,117 @@
 {% block scripts %}
 <script type="text/javascript">
 
-    $(document).ready(function(){
-        console.log("tuvieja")
-        var myPlaylist = new jPlayerPlaylist({
-            jPlayer: "#jquery_jplayer_1",
-            cssSelectorAncestor: "#jp_container_1"
-        }, [
-            {
-                title:"Cro Magnon Man",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-            }
+	$(document).ready(function(){
+		console.log("tuvieja")
+		var myPlaylist = new jPlayerPlaylist({
+			jPlayer: "#jquery_jplayer_1",
+			cssSelectorAncestor: "#jp_container_1"
+		}, [
+			{
+				title:"Cro Magnon Man",
+				artist:"The Stark Palace",
+				mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+			}
 
-        ], {
-            playlistOptions: {
-                enableRemoveControls: true
-            },
-            swfPath: "../../dist/jplayer",
-            supplied: "oga, mp3",
-            wmode: "window",
-            useStateClassSkin: true,
-            autoBlur: false,
-            smoothPlayBar: true,
-            keyEnabled: true
-        });
-
-
-
-        //add canciones a la playlist
+		], {
+			playlistOptions: {
+				enableRemoveControls: true
+			},
+			swfPath: "../../dist/jplayer",
+			supplied: "oga, mp3",
+			wmode: "window",
+			useStateClassSkin: true,
+			autoBlur: false,
+			smoothPlayBar: true,
+			keyEnabled: true
+		});
 
 
-        $("#playlist-add-bubble").click(function() {
-            myPlaylist.add({
-                title:"Bubble",
-                artist:"Miaow",
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
-            });
-        });
 
-        $("#playlist-add-hidden").click(function() {
-            myPlaylist.add({
-                title:"Hidden",
-                artist:"Miaow",
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
-            });
-        });
-
-        $("#playlist-add-tempered-song").click(function() {
-            myPlaylist.add({
-                title:"Tempered Song",
-                artist:"Miaow",
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
-            });
-        });
-
-        $("#playlist-add-lentement").click(function() {
-            myPlaylist.add({
-                title:"Lentement",
-                artist:"Miaow",
-                mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
-            });
-        });
-
-        // The Stark Palace tracks
-
-        $("#playlist-add-cro-magnon-man").click(function() {
-            myPlaylist.add({
-                title:"Cro Magnon Man",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-            });
-        });
-
-        $("#playlist-add-your-face").click(function() {
-            myPlaylist.add({
-                title:"Your Face",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
-            });
-        });
-
-        $("#playlist-add-cyber-sonnet").click(function() {
-            myPlaylist.add({
-                title:"Cyber Sonnet",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
-            });
-        });
+		//add canciones a la playlist
 
 
-        // agrega temas con el boton
-        $("#agrega").click(function() {
-            console.log("tu vieja")
-            myPlaylist.add({
-                title:$("#title").val(),
-                artist:$("#artist").val(),
-                mp3:$("#mp3").val(),
+		$("#playlist-add-bubble").click(function() {
+			myPlaylist.add({
+				title:"Bubble",
+				artist:"Miaow",
+				mp3:"http://www.jplayer.org/audio/mp3/Miaow-07-Bubble.mp3",
+			});
+		});
 
-            });
-            document.getElementById("title").value=("value","");
-            document.getElementById("artist").value=("value","");
-            document.getElementById("mp3").value=("value","");
-            console.log(myPlaylist)
-        });
+		$("#playlist-add-hidden").click(function() {
+			myPlaylist.add({
+				title:"Hidden",
+				artist:"Miaow",
+				mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+			});
+		});
 
-        // AVOID COMMANDS
+		$("#playlist-add-tempered-song").click(function() {
+			myPlaylist.add({
+				title:"Tempered Song",
+				artist:"Miaow",
+				mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+			});
+		});
 
-        $("#playlist-avoid-1").click(function() {
-            myPlaylist.remove(2); // Removes the 3rd item
-            myPlaylist.remove(3); // Ignored unless removeTime=0: Where it removes the 4th item, which was originally the 5th item.
-        });
-    });
+		$("#playlist-add-lentement").click(function() {
+			myPlaylist.add({
+				title:"Lentement",
+				artist:"Miaow",
+				mp3:"http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3",
+			});
+		});
+
+		// The Stark Palace tracks
+
+		$("#playlist-add-cro-magnon-man").click(function() {
+			myPlaylist.add({
+				title:"Cro Magnon Man",
+				artist:"The Stark Palace",
+				mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+			});
+		});
+
+		$("#playlist-add-your-face").click(function() {
+			myPlaylist.add({
+				title:"Your Face",
+				artist:"The Stark Palace",
+				mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+			});
+		});
+
+		$("#playlist-add-cyber-sonnet").click(function() {
+			myPlaylist.add({
+				title:"Cyber Sonnet",
+				artist:"The Stark Palace",
+				mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+			});
+		});
+
+
+		// agrega temas con el boton
+		$("#agrega").click(function() {
+			console.log("tu vieja")
+			myPlaylist.add({
+				title:$("#title").val(),
+				artist:$("#artist").val(),
+				mp3:$("#mp3").val(),
+
+			});
+			document.getElementById("title").value=("value","");
+			document.getElementById("artist").value=("value","");
+			document.getElementById("mp3").value=("value","");
+			console.log(myPlaylist)
+		});
+
+		// AVOID COMMANDS
+
+		$("#playlist-avoid-1").click(function() {
+			myPlaylist.remove(2); // Removes the 3rd item
+			myPlaylist.remove(3); // Ignored unless removeTime=0: Where it removes the 4th item, which was originally the 5th item.
+		});
+	});
 </script>
 
 {% endblock %}
@@ -123,173 +123,173 @@
 {% block content %}
 <ul id="dropdown1" class="dropdown-content">
 
-    <li><a class="white-text" href="{% url 'GMP:profile' %}">Edit Profile</a></li>
-    <li class="divider"></li>
-    <li><a class="white-text" href="{% url 'GMP:logout' %}">Log Out</a></li>
+	<li><a class="white-text" href="{% url 'GMP:profile' %}">Edit Profile</a></li>
+	<li class="divider"></li>
+	<li><a class="white-text" href="{% url 'GMP:logout' %}">Log Out</a></li>
 </ul>
 
 <nav class="color" role="navigation">
-    <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3" style="heigh:50px;">
-        <ul class="right hide-on-med-and-down">
-            <li><img src="{% get_media_prefix %}/{{user.profile.profile_photo}}" alt="" class="circle responsive-img"></li>
-            <li><a class="dropdown-button" data-activates="dropdown1">{{ user }}<i class="material-icons right"></i></a></li>
-        </ul>
-    </div>
+	<div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3" style="heigh:50px;">
+		<ul class="right hide-on-med-and-down">
+			<li><img src="{% get_media_prefix %}/{{user.profile.profile_photo}}" alt="" class="circle responsive-img"></li>
+			<li><a class="dropdown-button" data-activates="dropdown1">{{ user }}<i class="material-icons right"></i></a></li>
+		</ul>
+	</div>
 </nav>
 
 <div id="index-banner" class="parallax-container">
-    {{ Profile.profile_photo }}
-    <div id=circle>
-        <img src="{% get_media_prefix %}/{{user.profile.profile_photo}}" alt="" class="circle z-depth-5">
-    </div>
-    <div class="parallax"><img src="{% get_media_prefix %}/{{user.profile.cover_photo}}"></div>
-    <h5 class="header center teal-text text-lighten-2">{{ user }}</h5>
-    <p align="center" class="teal-text">{{ user.profile.city }}, {{ user.profile.country }}</p>
-    <center><a href="{{ user.profile.facebook }}" class="waves-effect waves-light btn-large">Facebook</a></center>
-    <a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey"><i class="fa fa-angle-double-down"></i></a>
+	{{ Profile.profile_photo }}
+	<div id=circle>
+		<img src="{% get_media_prefix %}/{{user.profile.profile_photo}}" alt="" class="circle z-depth-5">
+	</div>
+	<div class="parallax"><img src="{% get_media_prefix %}/{{user.profile.cover_photo}}"></div>
+	<h5 class="header center teal-text text-lighten-2">{{ user }}</h5>
+	<p align="center" class="teal-text">{{ user.profile.city }}, {{ user.profile.country }}</p>
+	<center><a href="{{ user.profile.facebook }}" class="waves-effect waves-light btn-large">Facebook</a></center>
+	<a href="#noticias" class="btn-floating btn-large waves-effect waves-light grey"><i class="fa fa-angle-double-down"></i></a>
 </div>
 
 <div class="row" id=noticias>
-    <div class="col s12">
-        <ul class="tabs">
-            <li class="tab col s3"><a class="active" href="#test1">Noticias</a></li>
-            <li class="tab col s3"><a href="#test2">Radio</a></li>
-            <li class="tab col s3"><a href="#test3">Musica</a></li>
-        </ul>
-    </div>
-    <div id="test1" class="col s12">
-        <div class="row">
-            <div class="col s3 m2" >
-                <div class="card" >
-                    <div class="card-image" >
-                        <img src="{% static 'img/rolling.jpg' %}" >
-                        <span class="card-title">The Rolling Stones: ¡gira por Latinoamérica!</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Tras el enorme éxito de su gira norteamericana en 2015, ZIP CODE TOUR, los legendarios Rolling Stones van a girar por América Latina en 2016.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/rolling-stones-latinoamerica-2016" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/sia.jpg' %}">
-                        <span class="card-title">Sia nos adelanta sobre su nuevo disco.</span>
-                    </div>
-                    <div class="card-content">
-                        <p>La exitosa cantante australiana Sia lanzará un nuevo disco, “This is Acting”, para el cual hasta abrió una cuenta de Instagram. <br>¡Ya era hora, Sia!</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/sia-nuevo-disco-this-is-the-acting" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/cream.jpg' %}">
-                        <span class="card-title">Line Up Creamfield 2015</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Consulta el Line Up y mucho mas, sobre el 15 aniversario de Creamfields BA.<br> Material exclusivo #GrapeMix</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://www.creamfieldsba.com/lineup.html" target="_blank">creamfieldsba.com.ar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/iastin.jpg' %}">
-                        <span class="card-title">MTV EMA 2015: ¡Justin Bieber se llevó la noche!</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Justin Bieber se llevó completamente la noche (lo sentimos, Taylor Swift, pero es la realidad). Ganó 6 premios. Y pisó el escenario para cantar su sencillo "What Do You Mean?"</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/justin-emas-2015-presentacion" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/rihanna.jpg' %}">
-                        <span class="card-title">Rihanna fue sustituida para el Victoria's Secret Fashion Show</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Rihanna oficialmente canceló su presentación en el desfile más esperado por los hombres porque, de acuerdo con la cantante, necesita el tiempo extra para dejar todo listo para el lanzamiento de su nuevo álbum.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/rihanna-cancela-victorias-secret-show" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="col s12">
+		<ul class="tabs">
+			<li class="tab col s3"><a class="active" href="#test1">Noticias</a></li>
+			<li class="tab col s3"><a href="#test2">Radio</a></li>
+			<li class="tab col s3"><a href="#test3">Musica</a></li>
+		</ul>
+	</div>
+	<div id="test1" class="col s12">
+		<div class="row">
+			<div class="col s3 m2" >
+				<div class="card" >
+					<div class="card-image" >
+						<img src="{% static 'img/rolling.jpg' %}" >
+						<span class="card-title">The Rolling Stones: ¡gira por Latinoamérica!</span>
+					</div>
+					<div class="card-content">
+						<p>Tras el enorme éxito de su gira norteamericana en 2015, ZIP CODE TOUR, los legendarios Rolling Stones van a girar por América Latina en 2016.</p>
+					</div>
+					<div class="card-action">
+						<a href="http://noticias.mtvla.com/articulo/rolling-stones-latinoamerica-2016" target="_blank">+info MTVLA</a>
+					</div>
+				</div>
+			</div>
+			<div class="col s3 m2">
+				<div class="card">
+					<div class="card-image">
+						<img src="{% static 'img/sia.jpg' %}">
+						<span class="card-title">Sia nos adelanta sobre su nuevo disco.</span>
+					</div>
+					<div class="card-content">
+						<p>La exitosa cantante australiana Sia lanzará un nuevo disco, “This is Acting”, para el cual hasta abrió una cuenta de Instagram. <br>¡Ya era hora, Sia!</p>
+					</div>
+					<div class="card-action">
+						<a href="http://noticias.mtvla.com/articulo/sia-nuevo-disco-this-is-the-acting" target="_blank">+info MTVLA</a>
+					</div>
+				</div>
+			</div>
+			<div class="col s3 m2">
+				<div class="card">
+					<div class="card-image">
+						<img src="{% static 'img/cream.jpg' %}">
+						<span class="card-title">Line Up Creamfield 2015</span>
+					</div>
+					<div class="card-content">
+						<p>Consulta el Line Up y mucho mas, sobre el 15 aniversario de Creamfields BA.<br> Material exclusivo #GrapeMix</p>
+					</div>
+					<div class="card-action">
+						<a href="http://www.creamfieldsba.com/lineup.html" target="_blank">creamfieldsba.com.ar</a>
+					</div>
+				</div>
+			</div>
+			<div class="col s3 m2">
+				<div class="card">
+					<div class="card-image">
+						<img src="{% static 'img/iastin.jpg' %}">
+						<span class="card-title">MTV EMA 2015: ¡Justin Bieber se llevó la noche!</span>
+					</div>
+					<div class="card-content">
+						<p>Justin Bieber se llevó completamente la noche (lo sentimos, Taylor Swift, pero es la realidad). Ganó 6 premios. Y pisó el escenario para cantar su sencillo "What Do You Mean?"</p>
+					</div>
+					<div class="card-action">
+						<a href="http://noticias.mtvla.com/articulo/justin-emas-2015-presentacion" target="_blank">+info MTVLA</a>
+					</div>
+				</div>
+			</div>
+			<div class="col s3 m2">
+				<div class="card">
+					<div class="card-image">
+						<img src="{% static 'img/rihanna.jpg' %}">
+						<span class="card-title">Rihanna fue sustituida para el Victoria's Secret Fashion Show</span>
+					</div>
+					<div class="card-content">
+						<p>Rihanna oficialmente canceló su presentación en el desfile más esperado por los hombres porque, de acuerdo con la cantante, necesita el tiempo extra para dejar todo listo para el lanzamiento de su nuevo álbum.</p>
+					</div>
+					<div class="card-action">
+						<a href="http://noticias.mtvla.com/articulo/rihanna-cancela-victorias-secret-show" target="_blank">+info MTVLA</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-    <div id="test2" class="col s12">Test 2</div>
-    <div id="test3" class="col s12">
+	<div id="test2" class="col s12">Test 2</div>
+	<div id="test3" class="col s12">
 
 
-        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-        <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
-            <div class="jp-type-playlist">
-                <div class="jp-gui jp-interface">
-                    <div class="jp-controls">
-                        <button class="jp-previous" role="button" tabindex="0">previous</button>
-                        <button class="jp-play" role="button" tabindex="0">play</button>
-                        <button class="jp-next" role="button" tabindex="0">next</button>
-                        <button class="jp-stop" role="button" tabindex="0">stop</button>
-                    </div>
-                    <div class="jp-progress">
-                        <div class="jp-seek-bar">
-                            <div class="jp-play-bar"></div>
-                        </div>
-                    </div>
-                    <div class="jp-volume-controls">
-                        <button class="jp-mute" role="button" tabindex="0">mute</button>
-                        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-                        <div class="jp-volume-bar">
-                            <div class="jp-volume-bar-value"></div>
-                        </div>
-                    </div>
-                    <div class="jp-time-holder">
-                        <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-                        <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-                    </div>
-                    <div class="jp-toggles">
-                        <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-                        <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
-                    </div>
-                </div>
-                <div class="jp-playlist">
-                    <ul>
-                        <li>&nbsp;</li>
-                    </ul>
-                </div>
-                <div class="jp-no-solution">
-                    <span>Update Required</span>
-                    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                </div>
-            </div>
-        </div>
+		<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+		<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+			<div class="jp-type-playlist">
+				<div class="jp-gui jp-interface">
+					<div class="jp-controls">
+						<button class="jp-previous" role="button" tabindex="0">previous</button>
+						<button class="jp-play" role="button" tabindex="0">play</button>
+						<button class="jp-next" role="button" tabindex="0">next</button>
+						<button class="jp-stop" role="button" tabindex="0">stop</button>
+					</div>
+					<div class="jp-progress">
+						<div class="jp-seek-bar">
+							<div class="jp-play-bar"></div>
+						</div>
+					</div>
+					<div class="jp-volume-controls">
+						<button class="jp-mute" role="button" tabindex="0">mute</button>
+						<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+						<div class="jp-volume-bar">
+							<div class="jp-volume-bar-value"></div>
+						</div>
+					</div>
+					<div class="jp-time-holder">
+						<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+						<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+					</div>
+					<div class="jp-toggles">
+						<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+						<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+					</div>
+				</div>
+				<div class="jp-playlist">
+					<ul>
+						<li>&nbsp;</li>
+					</ul>
+				</div>
+				<div class="jp-no-solution">
+					<span>Update Required</span>
+					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+				</div>
+			</div>
+		</div>
 
 
-        <p style="margin-top:1em;">
+		<p style="margin-top:1em;">
 
 
-            <code>add( <a href="javascript:;" id="playlist-add-bubble">{Bubble}</a> | <a href="javascript:;" id="playlist-add-hidden">{Hidden}</a> | <a href="javascript:;" id="playlist-add-tempered-song">{Tempered Song}</a> | <a href="javascript:;" id="playlist-add-lentement">{Lentement}</a> )</code><br />
-            The Stark Palace audio: <code>add( <a href="javascript:;" id="playlist-add-cro-magnon-man">{Cro Magnon Man}</a> | <a href="javascript:;" id="playlist-add-your-face">{Your Face}</a> | <a href="javascript:;" id="playlist-add-cyber-sonnet">{Cyber Sonnet}</a> )</code><br />
+			<code>add( <a href="javascript:;" id="playlist-add-bubble">{Bubble}</a> | <a href="javascript:;" id="playlist-add-hidden">{Hidden}</a> | <a href="javascript:;" id="playlist-add-tempered-song">{Tempered Song}</a> | <a href="javascript:;" id="playlist-add-lentement">{Lentement}</a> )</code><br />
+			The Stark Palace audio: <code>add( <a href="javascript:;" id="playlist-add-cro-magnon-man">{Cro Magnon Man}</a> | <a href="javascript:;" id="playlist-add-your-face">{Your Face}</a> | <a href="javascript:;" id="playlist-add-cyber-sonnet">{Cyber Sonnet}</a> )</code><br />
 
-        </p>
+		</p>
 
-        <!-- agregar elementos a mi jplayerplaylist
+		<!-- agregar elementos a mi jplayerplaylist
 <p>title</p>
 <textarea id="title" class="materialize-textarea"></textarea>
 <p>artist</p>
@@ -299,43 +299,35 @@
 
 
 <a class="waves-effect waves-light btn" id="agrega">agregar</a>-->
-        <li><a class="white-text" href="{% url 'GMP:upsong' %}">Upload</a></li>
-        {% for song in songs %}
-        <div>
-            <h6>
-                {{song.tittle}}
-            </h6>
-            <p class="grey-text">By {{song.author}}</p>
-            <p class="white-text">Album: {{song.album}}<p>
-            <div class="divider"></div>
-        </div>
-        {% endfor %}
-    </div>
+		<li><a class="white-text" href="{% url 'GMP:upsong' %}">Upload</a></li>
+
+
+	</div>
 </div>
 
 <footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Consultas</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Contactenos</h5>
-                <ul style="color:white;">
-                    <i class="fa fa-facebook fa-4x"></i>
-                    <i class="fa fa-instagram fa-4x"></i>
-                    <i class="fa fa-twitter fa-4x"></i>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            #GrapeMix by Materialize
-            <a class="grey-text text-lighten-4 right" href="#!">Mensaje</a>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col l6 s12">
+				<h5 class="white-text">Consultas</h5>
+				<p class="grey-text text-lighten-4"></p>
+			</div>
+			<div class="col l4 offset-l2 s12">
+				<h5 class="white-text">Contactenos</h5>
+				<ul style="color:white;">
+					<img src="{% static 'img/facebook1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/facebook2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/facebook1.png'%}';" width=35 height=35/>
+					<img src="{% static 'img/twitter1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/twitter2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/twitter1.png'%}';" width=35 height=35/>
+					<img src="{% static 'img/insta1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/insta2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/insta1.png'%}';" width=35 height=35/>
+					<img src="{% static 'img/google1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/google2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/google1.png'%}';" width=35 height=35/>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright">
+		<div class="container">
+			<a class="grey-text text-lighten-4 left" href="#!">Copyright © 2015 GrapeMix, All rights reserved.</a>
+		</div>
+	</div>
 </footer>
 
 {% endblock %}
