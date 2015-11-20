@@ -6,8 +6,6 @@ from django.db.models.signals import post_save
 from django.conf import settings
 # Create your models here.
 
-GENRE_CHOICES = (('m'), ('f'))
-
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
     name = models.CharField(u'Name', max_length=20, default=user)
@@ -34,6 +32,7 @@ class Song(models.Model):
 
 class PlayList(models.Model):
     name = models.CharField(u'Name', max_length=20)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='ownerplaylist')
 
 class New(models.Model):
     class Meta:
