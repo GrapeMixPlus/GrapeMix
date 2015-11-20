@@ -66,7 +66,8 @@ def logup(request):
 @login_required(login_url='/login')
 def home(request):
     context = RequestContext(request)
-    return render_to_response('home.html', context)
+    song = Song.objects.all()
+    return render_to_response('home.html',{'songs': song}, context)
 
 
 @login_required(login_url='/login')
@@ -93,6 +94,9 @@ def profile(request):
     args['form'] = form
     return render(request, 'profile.html', args)
 
+def song_list(request):
+    songs = Song.objects.order_by('tittle')
+    return render_to_response('lista.html', {'songs': songs})
 
 def song(request):
     args = {}
@@ -105,7 +109,6 @@ def song(request):
         if formsong.is_valid():
             logger.info(formsong.instance)
             formsong.save()
-
     else:
         formsong = UpSongForm(instance=song)
     args['formsong'] = formsong
