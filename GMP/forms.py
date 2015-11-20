@@ -55,7 +55,7 @@ class UpSongForm(forms.ModelForm):
     class Meta:
 
         model = Song
-        exclude = ('fecha',)
+        exclude = ()
 
 
     def __init__(self, *args, **kwargs):

@@ -78,6 +78,7 @@
             },
         });
     });
+
 </script>
 
 {% endblock %}
@@ -112,6 +113,7 @@
 </div>
 
 <div class="row" id=noticias>
+
     <div class="col s12">
         <ul class="tabs">
             <li class="tab col s3"><a class="active" href="#test1">Noticias</a></li>
@@ -249,11 +251,10 @@
 <textarea id="artist" class="materialize-textarea"></textarea>
 <p>song</p>
 <textarea id="song" class="materialize-textarea"></textarea>
-
-
 <a class="waves-effect waves-light btn" id="agrega">agregar</a>-->
+
         <li><a class="white-text" href="{% url 'GMP:upsong' %}">Upload</a></li>
-         {% include "lista.html" %}
+        {% include "lista.html" %}
     </div>
 </div>
 
@@ -262,22 +263,22 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Consultas</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <p class="grey-text text-lighten-4"></p>
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Contactenos</h5>
                 <ul style="color:white;">
-                    <i class="fa fa-facebook fa-4x"></i>
-                    <i class="fa fa-instagram fa-4x"></i>
-                    <i class="fa fa-twitter fa-4x"></i>
+                    <a href="https://www.facebook.com/GrapeMix-540242019467215/?ref=bookmarks" target="_blank"><img src="{% static 'img/facebook1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/facebook2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/facebook1.png'%}';" width=35 height=35/></a>
+                    <a href="https://twitter.com/grapemixarg" target="_blank"><img src="{% static 'img/twitter1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/twitter2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/twitter1.png'%}';" width=35 height=35/></a>
+                    <img src="{% static 'img/insta1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/insta2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/insta1.png'%}';" width=35 height=35/>
+                    <a href="https://plus.google.com/b/112688672383218497935/112688672383218497935/about?gmbpt=true&pageId=112688672383218497935&hl=es" target="_blank"><img src="{% static 'img/google1.png'%}" width=35 height=35 onmouseover="this.src='{% static 'img/google2.png'%}';" width=35 height=35 onmouseout="this.src='{% static 'img/google1.png'%}';" width=35 height=35/></a>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            #GrapeMix by Materialize
-            <a class="grey-text text-lighten-4 right" href="#!">Mensaje</a>
+            <a class="grey-text text-lighten-4 left" href="#!">Copyright © 2015 GrapeMix, All rights reserved.</a>
         </div>
     </div>
 </footer>
