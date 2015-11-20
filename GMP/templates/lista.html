@@ -1,0 +1,12 @@
+{% for song in songs %}
+<div>
+    <h6 id="tittle">
+        {{song.tittle}}
+    </h6>
+    <p class="grey-text" id="author">By {{song.author}}</p>
+    <p class="white-text" id="album">Album: {{song.album}}<p>
+    <a href="javascript:;" id="add">Add</a>
+    <div class="divider"></div>
+</div>
+{% endfor %}
+<h1>SI FUNCA</h1>

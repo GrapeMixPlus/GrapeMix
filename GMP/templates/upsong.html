@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% load staticfiles %}
+{% load static %}
+
+{% block content %}
+<head>
+    <nav class="color" role="navigation">
+        <div class="nav-wrapper container col s12 m8 offset-m2 l6 offset-l3" style="heigh:50px;">
+            <ul class="right hide-on-med-and-down">
+                <li></li>
+                <a href="{% url 'GMP:home' %}"><li>Inicio</li></a>
+            </ul>
+        </div>
+    </nav>
+</head>
+<body>
+    <div class="form_perfil">
+        <form class="col s12" method='POST'  action="{% url 'GMP:upsong' %} "enctype="multipart/form-data">
+            {% csrf_token %}
+            <!--<input type="hidden" name="song_id" value="{{objetoSong.id}}"/>-->
+            <div id="form_name">
+                <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Upload Song:</h5>
+                {{ formsong.as_p }}
+                <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
+                <button type="submit" class="white-text waves-effect orange waves btn">Upload</button></center>
+            </div>
+        </form>
+    </div>
+</body>
+
+{% endblock %}
