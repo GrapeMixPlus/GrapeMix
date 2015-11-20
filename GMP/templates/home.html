@@ -4,24 +4,14 @@
 
 {% block scripts %}
 <script type="text/javascript">
-
-    $(document).ready(function(){
-        console.log("tuvieja")
+        console.log({% get_media_prefix %});
         var myPlaylist = new jPlayerPlaylist({
             jPlayer: "#jquery_jplayer_1",
             cssSelectorAncestor: "#jp_container_1"
-        }, [
-            {
-                title:"Cro Magnon Man",
-                artist:"The Stark Palace",
-                mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
-            }
-
-        ], {
+        }, [], {
             playlistOptions: {
                 enableRemoveControls: true
             },
-            swfPath: "../../dist/jplayer",
             supplied: "oga, mp3",
             wmode: "window",
             useStateClassSkin: true,
@@ -33,44 +23,37 @@
         //add canciones a la playlist
         // agrega temas con el boton
 
-        $("#add").click(function() {
-            console.log("tu vieja")
+        function append_music(id) {
+            var titleId = "#tittle-"+id;
+            var authorId = "#author-"+id;
+            var mp3Id = "#mp3-"+id;
+            console.log(mp3Id);
+            var mp3 = $(mp3Id).html();
+            console.log(mp3);
             myPlaylist.add({
-                title:$("#title").val(),
-                author:$("#author").val(),
-                song:$("#song").val(),
-                album:$("#album").val(),
+                title:$(titleId).html(),
+                artist:$(authorId).html(),
+                mp3: mp3,
+                album:$("#album-"+id).html(),
 
             });
-            document.getElementById("title").value=("value","");
-            document.getElementById("author").value=("value","");
-            document.getElementById("album").value=("value","");
-            document.getElementById("song").value=("value","");
-            console.log(myPlaylist)
-        });
+        }
 
-        // AVOID COMMANDS
-
-        $("#playlist-avoid-1").click(function() {
-            myPlaylist.remove(2); // Removes the 3rd item
-            myPlaylist.remove(3); // Ignored unless removeTime=0: Where it removes the 4th item, which was originally the 5th item.
-        });
-    });
 
     $("#send_ajax").click(function(){
         var data={
             csrfmiddlewaretoken: '{{ csrf_token }}',
-            tittle:$('#tittle').val(),
-            album:$('#album').val(),
-            author:$('#author').val(),
-            song:$('#song').val(),
+            tittle:$('#tittle-'+id).html(),
+            album:$('#album-'+id).html(),
+            author:$('#author-'+id).html(),
+            song:$('#song-'+id).html(),
         }
         $.ajax({
             type: "POST",
             url: "{% url 'GMP:song_list' %}",
             data: data,
             success: function(result){
-                $("#song").html(result);
+                $("#song-"+id).html(result);
             },
             error: function(err){
                 console.log("ERRRORRRR");
