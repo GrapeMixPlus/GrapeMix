@@ -63,12 +63,34 @@
     });
 
 
-    function enviar(){
+    /*function enviar(){
         search = $('#buscador').val();
         search = search.split(' ').join("");
         window.location.href= "/buscador/"+search+"/";
-    }
 
+    }*/
+
+    $("#btn_buscar").click(function(){
+        var data={
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            search:$('#buscador').html(),
+        }
+        search = $('#buscador').val();
+        search = search.split(' ').join("");
+
+        $.ajax({
+            type: "POST",
+            url: "/buscador/"+search+"/",
+            data: data,
+            success: function(result){
+               $("#songs").html(result);
+            },
+            error: function(err){
+                console.log("ERRRORRRR");
+                console.log(err.responseText);
+            },
+        });
+    });
 </script>
 
 
@@ -193,7 +215,9 @@
     <div id="test2" class="col s12">
 
         <textarea class="materialize-textarea" sytle=" padding:20%;" id="buscador" required data-validation-required-message="Please enter a message."></textarea>
-        <button class="btn waves-effect waves-light" id="btn_buscar" name="enviar" onclick="enviar()"> buscar <i class="fa fa-paper-plane"></i></button>
+        <button class="btn waves-effect waves-light" id="btn_buscar" name="enviar"> buscar <i class="fa fa-paper-plane"></i></button>
+
+
 
         <div id="jquery_jplayer_1" class="jp-jplayer"></div>
         <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
@@ -249,7 +273,8 @@
 <a class="waves-effect waves-light btn" id="agrega">agregar</a>-->
 
         <li><a class="white-text" href="{% url 'GMP:upsong' %}">Upload</a></li>
-        {% include "lista.html" %}
+        <div id="songs">{% include "lista.html" %}</div>
+
     </div>
 </div>
 

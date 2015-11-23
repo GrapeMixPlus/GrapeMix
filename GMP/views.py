@@ -13,6 +13,7 @@ logger = logging.getLogger('django')
 import os
 from GMP.forms import EditSocialProfileForm, MyUserCreationForm, UpSongForm
 
+
 def inup(request):
     return render_to_response('grapemix.html')
 
@@ -117,6 +118,7 @@ def song(request):
 def buscador(request, busqueda):
     context = RequestContext(request)
     songs = Song.objects.filter(tittle = busqueda)
+
     return render_to_response('lista.html',
                               {'songs':songs},
                               context)
