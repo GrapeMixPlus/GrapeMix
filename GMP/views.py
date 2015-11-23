@@ -115,6 +115,7 @@ def song(request):
     args['formsong'] = formsong
     return render(request, 'upsong.html', args)
 
+
 def buscador(request, busqueda):
     context = RequestContext(request)
     songs = Song.objects.filter(tittle = busqueda)
@@ -122,4 +123,3 @@ def buscador(request, busqueda):
     return render_to_response('lista.html',
                               {'songs':songs},
                               context)
-
