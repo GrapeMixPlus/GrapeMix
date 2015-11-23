@@ -4,40 +4,40 @@
 
 {% block scripts %}
 <script type="text/javascript">
-        console.log({% get_media_prefix %});
-        var myPlaylist = new jPlayerPlaylist({
-            jPlayer: "#jquery_jplayer_1",
-            cssSelectorAncestor: "#jp_container_1"
-        }, [], {
-            playlistOptions: {
-                enableRemoveControls: true
-            },
-            supplied: "oga, mp3",
-            wmode: "window",
-            useStateClassSkin: true,
-            autoBlur: false,
-            smoothPlayBar: true,
-            keyEnabled: true
+    console.log({% get_media_prefix %});
+    var myPlaylist = new jPlayerPlaylist({
+        jPlayer: "#jquery_jplayer_1",
+        cssSelectorAncestor: "#jp_container_1"
+    }, [], {
+        playlistOptions: {
+            enableRemoveControls: true
+        },
+        supplied: "oga, mp3",
+        wmode: "window",
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true
+    });
+
+    //add canciones a la playlist
+    // agrega temas con el boton
+
+    function append_music(id) {
+        var titleId = "#tittle-"+id;
+        var authorId = "#author-"+id;
+        var mp3Id = "#mp3-"+id;
+        console.log(mp3Id);
+        var mp3 = $(mp3Id).html();
+        console.log(mp3);
+        myPlaylist.add({
+            title:$(titleId).html(),
+            artist:$(authorId).html(),
+            mp3: mp3,
+            album:$("#album-"+id).html(),
+
         });
-
-        //add canciones a la playlist
-        // agrega temas con el boton
-
-        function append_music(id) {
-            var titleId = "#tittle-"+id;
-            var authorId = "#author-"+id;
-            var mp3Id = "#mp3-"+id;
-            console.log(mp3Id);
-            var mp3 = $(mp3Id).html();
-            console.log(mp3);
-            myPlaylist.add({
-                title:$(titleId).html(),
-                artist:$(authorId).html(),
-                mp3: mp3,
-                album:$("#album-"+id).html(),
-
-            });
-        }
+    }
 
 
     $("#send_ajax").click(function(){
@@ -62,7 +62,16 @@
         });
     });
 
+
+    function enviar(){
+        search = $('#buscador').val();
+        search = search.split(' ').join("");
+        window.location.href= "/buscador/"+search+"/";
+    }
+
 </script>
+
+
 
 {% endblock %}
 
@@ -101,8 +110,7 @@
     <div class="col s12">
         <ul class="tabs">
             <li class="tab col s3"><a class="active" href="#test1">Noticias</a></li>
-            <li class="tab col s3"><a href="#test2">Radio</a></li>
-            <li class="tab col s3"><a href="#test3">Musica</a></li>
+            <li class="tab col s3"><a href="#test2">Musica</a></li>
         </ul>
     </div>
     <div id="test1" class="col s12">
@@ -181,9 +189,11 @@
     </div>
 
 
-    <div id="test2" class="col s12">Test 2</div>
-    <div id="test3" class="col s12">
 
+    <div id="test2" class="col s12">
+
+        <textarea class="materialize-textarea" sytle=" padding:20%;" id="buscador" required data-validation-required-message="Please enter a message."></textarea>
+        <button class="btn waves-effect waves-light" id="btn_buscar" name="enviar" onclick="enviar()"> buscar <i class="fa fa-paper-plane"></i></button>
 
         <div id="jquery_jplayer_1" class="jp-jplayer"></div>
         <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
