@@ -69,11 +69,12 @@ def logup(request):
 def home(request):
     context = RequestContext(request)
     song = Song.objects.all()
+    news = New.objects.all()
     try:
         playlist=PlayList.objects.get(user=request.user)
-        return render_to_response('home.html',{'songs': song,'playlist':playlist}, context)
+        return render_to_response('home.html',{'songs': song,'playlist':playlist, 'news':news}, context)
     except:
-        return render_to_response('home.html',{'songs': song}, context)
+        return render_to_response('home.html',{'songs': song, 'news':news}, context)
 
 
 
