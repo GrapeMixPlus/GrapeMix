@@ -1,14 +1,9 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
-{% load static %}
-
-{% block content %}
 {% for new in news %}
 
 <div class="col s3 m2" >
     <div class="card" >
         <div class="card-image" >
-            <img src={{new.picture}} >
+            <img src="/multimedia/{{new.picture}}"><!--Aca hay un error, intente usar MEDIA_URL y no funciona-->
             <span class="card-title" id="tittle-{{new.id}}">{{new.tittle}}</span>
         </div>
         <div class="card-content">
@@ -23,6 +18,3 @@
 
 
 {% endfor %}
-
-
-{% endblock %}
