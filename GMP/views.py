@@ -103,7 +103,6 @@ def song(request):
     args = {}
     context = RequestContext(request)
     song = Song()
-    #print >> sys.stderr, args
     if request.method == 'POST':
         print >> sys.stderr, args
         formsong = UpSongForm(request.POST, request.FILES, instance=song)
@@ -130,28 +129,18 @@ def ver_new(request, id_new):
 	return render_to_response('new.html', {'mi_new':mi_new},context)
 
 def addList(request):
-    print "0"
     context = RequestContext(request)
-    print "0"
     listas=PlayList.objects.all()
-    print "0"
     lista=None
-    print "1"
     for i in listas:
-        print "2"
         if i.user == request.user:
-            print "3"
             lista=i
             #lista=PlayList.objects.get(id=i.id)
     if lista == None:
-        print "4"
         lista = PlayList()
         lista.name=str(request.user)+' list'
         lista.user=request.user
         lista.save()
-    print "5"
     song = Song.objects.get(id=request.POST['id'])
-    print "6"
     lista.song.add(song)
-    print "7"
     return HttpResponse(status=202)

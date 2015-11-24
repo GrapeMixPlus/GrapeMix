@@ -21,7 +21,7 @@
             <div id="form_name">
                 <center><h5 class="header center grey-text text-darken-2" style="margin-top:20px;">Upload Song:</h5>
                 {{ formsong.as_p }}
-                <a href="#" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
+                <a href="{% url 'GMP:home' %}" class="grey-text waves-effect waves-orange btn-flat">Cancelar</a>
                 <button type="submit" class="white-text waves-effect orange waves btn">Upload</button></center>
             </div>
         </form>
