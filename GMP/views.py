@@ -97,9 +97,7 @@ def profile(request):
     args['form'] = form
     return render(request, 'profile.html', args)
 
-def song_list(request):
-    songs = Song.objects.order_by('tittle')
-    return render_to_response('lista.html', {'songs': songs})
+
 
 def song(request):
     args = {}

@@ -71,29 +71,6 @@
          }
 
 
-         /*
-    $("#send_ajax").click(function(){
-        var data={
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            tittle:$('#tittle-'+id).html(),
-            album:$('#album-'+id).html(),
-            author:$('#author-'+id).html(),
-            song:$('#song-'+id).html(),
-        }
-        $.ajax({
-            type: "POST",
-            url: "{% url 'GMP:song_list' %}",
-            data: data,
-            success: function(result){
-                $("#song-"+id).html(result);
-            },
-            error: function(err){
-                console.log("ERRRORRRR");
-                console.log(err.responseText);
-            },
-        });
-    });
-*/
 
 
 
@@ -251,7 +228,7 @@
 
     <div id="test2" class="col s12">
 
-        <textarea class="materialize-textarea" sytle=" padding:20%;" id="buscador" required data-validation-required-message="Please enter a message."></textarea>
+        <textarea class="materialize-textarea" sytle=" padding:20%;" id="buscador" required data-validation-required-message="Please enter a message." value="-">asdk</textarea>
         <button class="btn waves-effect waves-light" id="btn_buscar" name="enviar"> buscar <i class="fa fa-paper-plane"></i></button>
 
 
@@ -310,7 +287,7 @@
 <a class="waves-effect waves-light btn" id="agrega">agregar</a>-->
 
         <li><a class="white-text" href="{% url 'GMP:upsong' %}">Upload</a></li>
-        <div id="songs">{% include "lista.html" %}</div>
+        <div id="songs"></div>
 
     </div>
 </div>
