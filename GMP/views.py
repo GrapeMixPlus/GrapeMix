@@ -69,8 +69,12 @@ def logup(request):
 def home(request):
     context = RequestContext(request)
     song = Song.objects.all()
-    playlist=PlayList.objects.get(user=request.user)
-    return render_to_response('home.html',{'songs': song,'playlist':playlist}, context)
+    try:
+        playlist=PlayList.objects.get(user=request.user)
+        return render_to_response('home.html',{'songs': song,'playlist':playlist}, context)
+    except:
+        return render_to_response('home.html',{'songs': song}, context)
+
 
 
 @login_required(login_url='/login')

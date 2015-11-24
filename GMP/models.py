@@ -15,6 +15,9 @@ class Profile(models.Model):
     profile_photo = models.FileField(u'Profile Photo', upload_to='profile/', blank=True, default='profile/profiledef.jpg')
     cover_photo = models.FileField(u'Cover Photo', upload_to='profile/', blank=True, default='profile/coverdef.jpg')
 
+    def __str__(self):
+		return self.name
+
 class Artist(models.Model):
     name = models.CharField(u'Name', max_length=20, default="Artist")
 
@@ -27,10 +30,17 @@ class Song(models.Model):
     album = models.CharField(u'Album', max_length=20)
     song = models.FileField(u'Song', upload_to='songs/', blank=False)
 
+    def __str__(self):
+		return self.tittle
+
+
 class PlayList(models.Model):
     name = models.CharField(u'Name', max_length=20)
     song = models.ManyToManyField(Song)
     user = models.ForeignKey(User, related_name='ownerplaylist',default=None)
+
+    def __str__(self):
+		return self.name
 
 class New(models.Model):
     class Meta:
