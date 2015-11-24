@@ -20,26 +20,58 @@
         keyEnabled: true
     });
 
-    //add canciones a la playlist
-    // agrega temas con el boton
-
-    function append_music(id) {
-        var titleId = "#tittle-"+id;
-        var authorId = "#author-"+id;
-        var mp3Id = "#mp3-"+id;
-        console.log(mp3Id);
-        var mp3 = $(mp3Id).html();
-        console.log(mp3);
+    //printear toda la play list apenas se ejecuta
+    $(document).ready(function(){
+        console.log("tuvieja1")
+        {% for i in playlist.song.all %}
+        console.log("tuvieja")
         myPlaylist.add({
-            title:$(titleId).html(),
-            artist:$(authorId).html(),
-            mp3: mp3,
-            album:$("#album-"+id).html(),
-
+            title:"{{i.tittle}}",
+            artist:"{{i.author}}",
+            mp3: "{% get_media_prefix %}{{i.song}}",
+            album:"{{i.album}}",
         });
-    }
+         {% endfor %}
+        });
+
+         //add canciones a la playlist
+         // agrega temas con el boton
 
 
+         function append_music(id) {
+             /*var titleId = "#tittle-"+id;
+        var authorId = "#author-"+id;
+        var mp3Id = "#mp3-"+id;*/
+             var titleId = "#tittle-"+id;
+             var authorId = "#author-"+id;
+             var mp3Id = "#mp3-"+id;
+             console.log(mp3Id);
+             var mp3 = $(mp3Id).html();
+             var data={
+                 csrfmiddlewaretoken: '{{ csrf_token }}',
+                 id:id,
+             }
+             $.ajax({
+                 type: "POST",
+                 url: "{% url 'GMP:addList' %}",
+                 data: data,
+                 statusCode:{
+                     202 : function(){
+                         myPlaylist.add({
+                             title:$(titleId).html(),
+                             artist:$(authorId).html(),
+                             mp3: mp3,
+                             album:$("#album-"+id).html(),
+                         });
+                     },
+                 },
+
+             });
+             console.log(mp3);
+         }
+
+
+         /*
     $("#send_ajax").click(function(){
         var data={
             csrfmiddlewaretoken: '{{ csrf_token }}',
@@ -61,36 +93,32 @@
             },
         });
     });
+*/
 
 
-    /*function enviar(){
-        search = $('#buscador').val();
-        search = search.split(' ').join("");
-        window.location.href= "/buscador/"+search+"/";
 
-    }*/
 
-    $("#btn_buscar").click(function(){
-        var data={
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            search:$('#buscador').html(),
-        }
-        search = $('#buscador').val();
-        search = search.split(' ').join("");
+         $("#btn_buscar").click(function(){
+             var data={
+                 csrfmiddlewaretoken: '{{ csrf_token }}',
+                 search:$('#buscador').html(),
+             }
+             search = $('#buscador').val();
+             search = search.split(' ').join("");
 
-        $.ajax({
-            type: "POST",
-            url: "/buscador/"+search+"/",
-            data: data,
-            success: function(result){
-               $("#songs").html(result);
-            },
-            error: function(err){
-                console.log("ERRRORRRR");
-                console.log(err.responseText);
-            },
-        });
-    });
+             $.ajax({
+                 type: "POST",
+                 url: "/buscador/"+search+"/",
+                 data: data,
+                 success: function(result){
+                     $("#songs").html(result);
+                 },
+                 error: function(err){
+                     console.log("ERRRORRRR");
+                     console.log(err.responseText);
+                 },
+             });
+         });
 </script>
 
 
@@ -135,78 +163,87 @@
             <li class="tab col s3"><a href="#test2">Musica</a></li>
         </ul>
     </div>
+
+
     <div id="test1" class="col s12">
         <div class="row">
-            <div class="col s3 m2" >
-                <div class="card" >
-                    <div class="card-image" >
-                        <img src="{% static 'img/rolling.jpg' %}" >
-                        <span class="card-title">The Rolling Stones: ¡gira por Latinoamérica!</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Tras el enorme éxito de su gira norteamericana en 2015, ZIP CODE TOUR, los legendarios Rolling Stones van a girar por América Latina en 2016.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/rolling-stones-latinoamerica-2016" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/sia.jpg' %}">
-                        <span class="card-title">Sia nos adelanta sobre su nuevo disco.</span>
-                    </div>
-                    <div class="card-content">
-                        <p>La exitosa cantante australiana Sia lanzará un nuevo disco, “This is Acting”, para el cual hasta abrió una cuenta de Instagram. <br>¡Ya era hora, Sia!</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/sia-nuevo-disco-this-is-the-acting" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/cream.jpg' %}">
-                        <span class="card-title">Line Up Creamfield 2015</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Consulta el Line Up y mucho mas, sobre el 15 aniversario de Creamfields BA.<br> Material exclusivo #GrapeMix</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://www.creamfieldsba.com/lineup.html" target="_blank">creamfieldsba.com.ar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/iastin.jpg' %}">
-                        <span class="card-title">MTV EMA 2015: ¡Justin Bieber se llevó la noche!</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Justin Bieber se llevó completamente la noche (lo sentimos, Taylor Swift, pero es la realidad). Ganó 6 premios. Y pisó el escenario para cantar su sencillo "What Do You Mean?"</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/justin-emas-2015-presentacion" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{% static 'img/rihanna.jpg' %}">
-                        <span class="card-title">Rihanna fue sustituida para el Victoria's Secret Fashion Show</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Rihanna oficialmente canceló su presentación en el desfile más esperado por los hombres porque, de acuerdo con la cantante, necesita el tiempo extra para dejar todo listo para el lanzamiento de su nuevo álbum.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="http://noticias.mtvla.com/articulo/rihanna-cancela-victorias-secret-show" target="_blank">+info MTVLA</a>
-                    </div>
-                </div>
-            </div>
+
+
+
+            {% include "new.html" %}
+
+            <!--
+<div class="col s3 m2" >
+<div class="card" >
+<div class="card-image" >
+<img src="{% static 'img/rolling.jpg' %}" >
+<span class="card-title">The Rolling Stones: ¡gira por Latinoamérica!</span>
+</div>
+<div class="card-content">
+<p>Tras el enorme éxito de su gira norteamericana en 2015, ZIP CODE TOUR, los legendarios Rolling Stones van a girar por América Latina en 2016.</p>
+</div>
+<div class="card-action">
+<a href="http://noticias.mtvla.com/articulo/rolling-stones-latinoamerica-2016" target="_blank">+info MTVLA</a>
+</div>
+</div>
+</div>
+<div class="col s3 m2">
+<div class="card">
+<div class="card-image">
+<img src="{% static 'img/sia.jpg' %}">
+<span class="card-title">Sia nos adelanta sobre su nuevo disco.</span>
+</div>
+<div class="card-content">
+<p>La exitosa cantante australiana Sia lanzará un nuevo disco, “This is Acting”, para el cual hasta abrió una cuenta de Instagram. <br>¡Ya era hora, Sia!</p>
+</div>
+<div class="card-action">
+<a href="http://noticias.mtvla.com/articulo/sia-nuevo-disco-this-is-the-acting" target="_blank">+info MTVLA</a>
+</div>
+</div>
+</div>
+<div class="col s3 m2">
+<div class="card">
+<div class="card-image">
+<img src="{% static 'img/cream.jpg' %}">
+<span class="card-title">Line Up Creamfield 2015</span>
+</div>
+<div class="card-content">
+<p>Consulta el Line Up y mucho mas, sobre el 15 aniversario de Creamfields BA.<br> Material exclusivo #GrapeMix</p>
+</div>
+<div class="card-action">
+<a href="http://www.creamfieldsba.com/lineup.html" target="_blank">creamfieldsba.com.ar</a>
+</div>
+</div>
+</div>
+<div class="col s3 m2">
+<div class="card">
+<div class="card-image">
+<img src="{% static 'img/iastin.jpg' %}">
+<span class="card-title">MTV EMA 2015: ¡Justin Bieber se llevó la noche!</span>
+</div>
+<div class="card-content">
+<p>Justin Bieber se llevó completamente la noche (lo sentimos, Taylor Swift, pero es la realidad). Ganó 6 premios. Y pisó el escenario para cantar su sencillo "What Do You Mean?"</p>
+</div>
+<div class="card-action">
+<a href="http://noticias.mtvla.com/articulo/justin-emas-2015-presentacion" target="_blank">+info MTVLA</a>
+</div>
+</div>
+</div>
+<div class="col s3 m2">
+<div class="card">
+<div class="card-image">
+<img src="{% static 'img/rihanna.jpg' %}">
+<span class="card-title">Rihanna fue sustituida para el Victoria's Secret Fashion Show</span>
+</div>
+<div class="card-content">
+<p>Rihanna oficialmente canceló su presentación en el desfile más esperado por los hombres porque, de acuerdo con la cantante, necesita el tiempo extra para dejar todo listo para el lanzamiento de su nuevo álbum.</p>
+</div>
+<div class="card-action">
+<a href="http://noticias.mtvla.com/articulo/rihanna-cancela-victorias-secret-show" target="_blank">+info MTVLA</a>
+</div>
+</div>
+</div>
+-->
         </div>
     </div>
 

@@ -22,17 +22,26 @@ class Artist(models.Model):
         return self.name
 
 class Song(models.Model):
-    tittle = models.CharField(u'Tittle', max_length=50)
-    author = models.ForeignKey(Artist)
+    tittle = models.CharField(u'Title', max_length=50)
+    author = models.CharField(u'Author', max_length=50)
     album = models.CharField(u'Album', max_length=20)
     song = models.FileField(u'Song', upload_to='songs/', blank=False)
 
 class PlayList(models.Model):
     name = models.CharField(u'Name', max_length=20)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='ownerplaylist')
+    song = models.ManyToManyField(Song)
+    user = models.ForeignKey(User, related_name='ownerplaylist',default=None)
 
 class New(models.Model):
+    class Meta:
+		verbose_name = "New"
+		verbose_name_plural = "News"
+		#ordering=['-fecha']
     tittle = models.CharField(u'Tittle', max_length=20)
+    #fecha = models.DateTimeField(u'Fecha New',auto_now_add=True)
     text = models.CharField(u'Body', max_length=80)
     link = models.URLField(u'Link', max_length=200)
     picture = models.FileField(u'Photo', upload_to='news/', blank=True, default='news/defnew.jpg')
+
+    def __str__(self):
+		return self.tittle

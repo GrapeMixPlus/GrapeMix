@@ -5,12 +5,13 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from GMP.models import Profile, Song
+from GMP.models import Profile, Song, New, PlayList
 from django.contrib import messages
 import logging
 import sys
 logger = logging.getLogger('django')
 import os
+from django.http import HttpResponse
 from GMP.forms import EditSocialProfileForm, MyUserCreationForm, UpSongForm
 
 
@@ -68,7 +69,8 @@ def logup(request):
 def home(request):
     context = RequestContext(request)
     song = Song.objects.all()
-    return render_to_response('home.html',{'songs': song}, context)
+    playlist=PlayList.objects.get(user=request.user)
+    return render_to_response('home.html',{'songs': song,'playlist':playlist}, context)
 
 
 @login_required(login_url='/login')
@@ -123,3 +125,35 @@ def buscador(request, busqueda):
     return render_to_response('lista.html',
                               {'songs':songs},
                               context)
+
+def ver_new(request, id_new):
+	context = RequestContext(request)
+	the_new = New.objects.get(id=id_new)
+	return render_to_response('new.html', {'mi_new':mi_new},context)
+
+def addList(request):
+    print "0"
+    context = RequestContext(request)
+    print "0"
+    listas=PlayList.objects.all()
+    print "0"
+    lista=None
+    print "1"
+    for i in listas:
+        print "2"
+        if i.user == request.user:
+            print "3"
+            lista=i
+            #lista=PlayList.objects.get(id=i.id)
+    if lista == None:
+        print "4"
+        lista = PlayList()
+        lista.name=str(request.user)+' list'
+        lista.user=request.user
+        lista.save()
+    print "5"
+    song = Song.objects.get(id=request.POST['id'])
+    print "6"
+    lista.song.add(song)
+    print "7"
+    return HttpResponse(status=202)
