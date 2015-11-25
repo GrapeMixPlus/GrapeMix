@@ -70,9 +70,10 @@ def home(request):
     context = RequestContext(request)
     song = Song.objects.all()
     news = New.objects.all()
+    listaplay = PlayList.objects.all()
     try:
         playlist=PlayList.objects.get(user=request.user)
-        return render_to_response('home.html',{'songs': song,'playlist':playlist, 'news':news}, context)
+        return render_to_response('home.html',{'songs': song,'playlist':playlist, 'news':news, 'listaplay':listaplay}, context)
     except:
         return render_to_response('home.html',{'songs': song, 'news':news}, context)
 
@@ -141,6 +142,7 @@ def addList(request):
         if i.user == request.user:
             lista=i
             #lista=PlayList.objects.get(id=i.id)
+            #TODO tendría que llamar directo de la base de datos (no recorrer las listas)
     if lista == None:
         lista = PlayList()
         lista.name=str(request.user)+' list'
@@ -149,3 +151,8 @@ def addList(request):
     song = Song.objects.get(id=request.POST['id'])
     lista.song.add(song)
     return HttpResponse(status=202)
+
+#def changelist(request):
+#    context = RequestContext(request)
+#    listas=PlayList.objects.get(id=request.POST['id'])
+#    return render_to_response('home.html', {'listas':listas},context)
