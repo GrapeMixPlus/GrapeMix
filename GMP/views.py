@@ -142,7 +142,7 @@ def addList(request):
         if i.user == request.user:
             lista=i
             #lista=PlayList.objects.get(id=i.id)
-            #TODO tendría que llamar directo de la base de datos (no recorrer las listas)
+
     if lista == None:
         lista = PlayList()
         lista.name=str(request.user)+' list'

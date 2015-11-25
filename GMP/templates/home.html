@@ -40,37 +40,7 @@
 
 
          //select list
-         /*$("#selectplaylist").change(function(){
 
-             console.log("tuvieja");
-             var idlistselect=document.getElementById("selectplaylist").value;
-             var data={
-                 csrfmiddlewaretoken: '{{ csrf_token }}',
-                 id:idlistselect,
-             }
-
-             $.ajax({
-                 type: "POST",
-                 url: "{% url 'GMP:changelist' %}",
-                 data: data,
-                 success: function(result){
-                     myPlaylist.remove();
-                     {% for i in listas.song.all %}
-                     myPlaylist.add({
-                         title:"{{i.tittle}}",
-                         artist:"{{i.author}}",
-                         mp3: "{% get_media_prefix %}{{i.song}}",
-                         album:"{{i.album}}",
-                     });
-                      {% endfor %}
-                      },
-                          error: function(err){
-                              console.log("ERRRORRRR");
-                              console.log(err.responseText);
-                          },
-                     });
-                 });
-*/
                  //add canciones a la playlist
                  // agrega temas con el boton
 
